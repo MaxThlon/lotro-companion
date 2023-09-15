@@ -3,8 +3,7 @@ package delta.games.lotro.gui.lore.items.chooser;
 import java.awt.Dimension;
 import java.util.List;
 
-import javax.swing.JDialog;
-
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.common.utils.collections.filters.Filter;
@@ -49,7 +48,7 @@ public class ItemChooser
     final ObjectChoiceWindowController<Item> chooser=new ObjectChoiceWindowController<Item>(parent,prefs,itemsTable);
     // Filter
     chooser.setFilter(filter,filterController);
-    JDialog dialog=chooser.getDialog();
+    DeltaDialog dialog=chooser.getDialog();
     // Title
     dialog.setTitle("Choose item:");
     // Dimension

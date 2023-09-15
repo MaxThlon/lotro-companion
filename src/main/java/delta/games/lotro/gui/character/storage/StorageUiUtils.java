@@ -20,10 +20,8 @@ public class StorageUiUtils
    */
   public static JProgressBar buildProgressBar()
   {
-    JProgressBar bar=new JProgressBar(SwingConstants.HORIZONTAL,0,100);
-    bar.setBackground(GuiFactory.getBackgroundColor());
-    bar.setBorderPainted(true);
-    bar.setStringPainted(true);
+    JProgressBar bar=GuiFactory.buildProgressBar(SwingConstants.HORIZONTAL,0,100);
+    GuiFactory.getGuiPattern().patternize_ProgressBar(bar);
     bar.setPreferredSize(new Dimension(200,25));
     bar.setMinimumSize(new Dimension(200,25));
     return bar;

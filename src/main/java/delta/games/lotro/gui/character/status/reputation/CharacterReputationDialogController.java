@@ -12,13 +12,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JTabbedPane;
 import javax.swing.border.TitledBorder;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -62,9 +62,9 @@ public class CharacterReputationDialogController extends DefaultFormDialogContro
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setTitle("Reputation editor"); // I18n
     dialog.setResizable(false);
     return dialog;

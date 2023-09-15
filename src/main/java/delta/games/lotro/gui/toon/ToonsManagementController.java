@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -17,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import delta.common.ui.swing.DeltaWindow;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.tables.TableColumnsChooserController;
@@ -279,7 +279,7 @@ public class ToonsManagementController implements ActionListener,GenericEventsLi
   private void importToon()
   {
     FileChooserController ctrl=new FileChooserController("import", "Import character..."); // I18n
-    Window window=_parentController.getWindow();
+    DeltaWindow window=_parentController.getWindow();
     File fromFile=ctrl.chooseFile(window,"Import");
     if (fromFile!=null)
     {

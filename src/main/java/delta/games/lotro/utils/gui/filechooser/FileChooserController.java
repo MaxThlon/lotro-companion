@@ -5,6 +5,9 @@ import java.io.File;
 
 import javax.swing.JFileChooser;
 
+import delta.common.ui.swing.DeltaComponent;
+import delta.common.ui.swing.GuiFactory;
+import delta.common.ui.swing.DeltaFileChooser;
 import delta.common.utils.misc.Preferences;
 import delta.common.utils.misc.TypedProperties;
 import delta.games.lotro.Config;
@@ -18,7 +21,7 @@ public class FileChooserController
   private static final String CURRENT_FILE_PREFERENCE="current.file";
   private String _id;
   private String _title;
-  private JFileChooser _chooser;
+  private DeltaFileChooser _chooser;
 
   /**
    * Constructor.
@@ -29,14 +32,14 @@ public class FileChooserController
   {
     _id=id;
     _title=title;
-    _chooser=new JFileChooser();
+    _chooser=GuiFactory.buildFileChooser();
   }
 
   /**
    * Get the managed chooser.
    * @return the managed chooser.
    */
-  public JFileChooser getChooser()
+  public DeltaFileChooser getChooser()
   {
     return _chooser;
   }
@@ -60,6 +63,10 @@ public class FileChooserController
     }
     return chosenDir;
   }
+  
+  public File chooseDirectory(DeltaComponent parent, String approveButtonText) {
+    return chooseDirectory((parent instanceof Component)?(Component)parent:null, approveButtonText);
+  }
 
   /**
    * Choose a file.
@@ -80,6 +87,16 @@ public class FileChooserController
       preferences.savePreferences(props);
     }
     return chosenFile;
+  }
+  
+  /**
+   * Choose a file.
+   * @param parent Parent component.
+   * @param approveButtonText Title of the approve button.
+   * @return A file or <code>null</code> if none chosen.
+   */
+  public File chooseFile(DeltaComponent parent, String approveButtonText) {
+    return chooseFile((parent instanceof Component)?(Component)parent:null, approveButtonText);
   }
 
   private File choose(Component parent, String approveButtonText)

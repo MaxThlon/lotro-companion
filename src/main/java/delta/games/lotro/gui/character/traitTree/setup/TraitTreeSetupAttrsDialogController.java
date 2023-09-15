@@ -4,12 +4,12 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -36,9 +36,9 @@ public class TraitTreeSetupAttrsDialogController extends DefaultFormDialogContro
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setTitle("Edit trait tree setup..."); // I18n
     dialog.setResizable(false);
     return dialog;
@@ -111,7 +111,7 @@ public class TraitTreeSetupAttrsDialogController extends DefaultFormDialogContro
   private void showErrorMessage(String errorMsg)
   {
     String title="Trait tree setup edition"; // I18n
-    JDialog dialog=getDialog();
+    DeltaDialog dialog=getDialog();
     GuiFactory.showErrorDialog(dialog,errorMsg,title);
   }
 

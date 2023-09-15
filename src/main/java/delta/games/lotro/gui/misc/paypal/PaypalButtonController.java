@@ -36,6 +36,7 @@ public class PaypalButtonController
   private JButton build()
   {
     JButton button=GuiFactory.buildIconButton("/resources/gui/paypal/donate.png");
+    GuiFactory.getGuiPattern().patternize_button_icon(button);
     // Tooltip
     String tooltip="<html>Make a donation with Paypal.<br>" // I18n
         + "This is only to show your support for my work on this tool."

@@ -85,8 +85,8 @@ public class ItemIconBuilder
   {
     BufferedImage[] images=new BufferedImage[imageIds.length];
     int nbImages=imageIds.length;
-    int width=0;
-    int height=0;
+    int width=1;
+    int height=1;
     for(int i=0;i<nbImages;i++)
     {
       if ("0".equals(imageIds[i]))

@@ -5,9 +5,9 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -51,9 +51,9 @@ public class SkirmishStatisticsWindowController extends DefaultDisplayDialogCont
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(1000,300));
     dialog.setTitle("Skirmish statistics"); // I18n
     dialog.setSize(new Dimension(1200,600));

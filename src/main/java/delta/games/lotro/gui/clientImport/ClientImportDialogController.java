@@ -3,16 +3,16 @@ package delta.games.lotro.gui.clientImport;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.DeltaWindow;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -55,9 +55,9 @@ public class ClientImportDialogController extends DefaultDialogController implem
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setModal(false);
     dialog.setTitle("Import from local client"); // I18n
     dialog.setResizable(false);
@@ -65,7 +65,7 @@ public class ClientImportDialogController extends DefaultDialogController implem
     WindowController controller=getParentController();
     if (controller!=null)
     {
-      Window parentWindow=controller.getWindow();
+      DeltaWindow parentWindow=controller.getWindow();
       dialog.setLocationRelativeTo(parentWindow);
     }
     return dialog;

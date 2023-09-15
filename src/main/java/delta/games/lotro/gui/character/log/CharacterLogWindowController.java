@@ -6,10 +6,10 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import delta.common.ui.swing.DeltaFrame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.games.lotro.character.CharacterFile;
@@ -58,9 +58,9 @@ public class CharacterLogWindowController extends DefaultWindowController
   }
 
   @Override
-  protected JFrame build()
+  protected DeltaFrame build()
   {
-    JFrame frame=super.build();
+    DeltaFrame frame=super.build();
     String name=_toon.getName();
     String title="Character log for: "+name; // I18n
     frame.setTitle(title);

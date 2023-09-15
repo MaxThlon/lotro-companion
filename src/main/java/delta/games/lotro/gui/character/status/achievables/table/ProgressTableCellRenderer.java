@@ -5,6 +5,7 @@ import java.awt.Component;
 
 import javax.swing.JProgressBar;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.plaf.basic.BasicProgressBarUI;
 import javax.swing.table.DefaultTableCellRenderer;
 
@@ -24,10 +25,8 @@ public class ProgressTableCellRenderer extends DefaultTableCellRenderer
    */
   public ProgressTableCellRenderer()
   {
-    _progressBar=new JProgressBar();
-    _progressBar.setBackground(GuiFactory.getBackgroundColor());
-    _progressBar.setForeground(Color.BLACK);
-    _progressBar.setStringPainted(true);
+    _progressBar=GuiFactory.buildProgressBar(SwingConstants.HORIZONTAL, 0, 1);
+    GuiFactory.getGuiPattern().patternize_ProgressBar(_progressBar);
     _progressBar.setUI(new BasicProgressBarUI()
     {
       @Override

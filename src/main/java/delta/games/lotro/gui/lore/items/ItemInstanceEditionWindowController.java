@@ -1,8 +1,8 @@
 package delta.games.lotro.gui.lore.items;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.BasicCharacterAttributes;
@@ -43,7 +43,7 @@ public class ItemInstanceEditionWindowController extends DefaultFormDialogContro
     Item reference=_data.getReference();
     String name=reference.getName();
     String title="Edit "+name;
-    JDialog dialog=getDialog();
+    DeltaDialog dialog=getDialog();
     dialog.setTitle(title);
     dialog.pack();
     dialog.setMinimumSize(dialog.getSize());

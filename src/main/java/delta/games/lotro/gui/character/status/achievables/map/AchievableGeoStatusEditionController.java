@@ -1,9 +1,9 @@
 package delta.games.lotro.gui.character.status.achievables.map;
 
-import java.awt.Window;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import delta.common.ui.swing.DeltaWindow;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.achievables.edition.AchievableGeoStatusManager;
 
@@ -55,7 +55,7 @@ public class AchievableGeoStatusEditionController
     }
     _mapController=new GeoAchievableMapWindowController(_parent,_mgr,_editable);
     _mapController.updateUi();
-    Window window=_mapController.getWindow();
+    DeltaWindow window=_mapController.getWindow();
     WindowAdapter l=new WindowAdapter()
     {
       public void windowClosed(WindowEvent e)

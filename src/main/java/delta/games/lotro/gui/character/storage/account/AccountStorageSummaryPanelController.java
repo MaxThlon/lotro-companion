@@ -1,6 +1,5 @@
 package delta.games.lotro.gui.character.storage.account;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -62,7 +61,7 @@ public class AccountStorageSummaryPanelController
       Integer[] capacity=getCapacity(storage,true);
       Integer used=capacity[0];
       Integer max=capacity[1];
-      updateProgressBar(_bags,used,max);
+      GuiFactory.getGuiPattern().patternize_ProgressBar_update(_bags, used, max);
     }
     // Shared vault
     {
@@ -71,11 +70,11 @@ public class AccountStorageSummaryPanelController
       {
         Integer max=Integer.valueOf(sharedVault.getCapacity());
         Integer used=Integer.valueOf(sharedVault.getUsed());
-        updateProgressBar(_sharedVault,used,max);
+        GuiFactory.getGuiPattern().patternize_ProgressBar_update(_sharedVault,used,max);
       }
       else
       {
-        updateProgressBar(_sharedVault,null,null);
+        GuiFactory.getGuiPattern().patternize_ProgressBar_update(_sharedVault,null,null);
       }
     }
     // Vaults
@@ -83,7 +82,7 @@ public class AccountStorageSummaryPanelController
       Integer[] capacity=getCapacity(storage,false);
       Integer used=capacity[0];
       Integer max=capacity[1];
-      updateProgressBar(_vault,used,max);
+      GuiFactory.getGuiPattern().patternize_ProgressBar_update(_vault,used,max);
     }
   }
 
@@ -122,39 +121,10 @@ public class AccountStorageSummaryPanelController
 
   private JProgressBar buildProgressBar()
   {
-    JProgressBar bar=new JProgressBar(SwingConstants.HORIZONTAL,0,100);
-    bar.setBackground(GuiFactory.getBackgroundColor());
-    bar.setBorderPainted(true);
-    bar.setStringPainted(true);
+    JProgressBar bar=GuiFactory.buildProgressBar(SwingConstants.HORIZONTAL,0,100);
     bar.setPreferredSize(new Dimension(200,25));
     bar.setMinimumSize(new Dimension(200,25));
     return bar;
-  }
-
-  private void updateProgressBar(JProgressBar bar, Integer value, Integer maxValue)
-  {
-    if ((value!=null) && (maxValue!=null))
-    {
-      Color color=getColor(value.intValue(),maxValue.intValue());
-      bar.setForeground(color);
-      bar.setString(value+" / "+maxValue);
-      bar.setMaximum(maxValue.intValue());
-      bar.setValue(value.intValue());
-    }
-    else
-    {
-      bar.setForeground(Color.LIGHT_GRAY);
-      bar.setString("(unknown)"); // I18n
-      bar.setMaximum(100);
-      bar.setValue(100);
-    }
-  }
-
-  private Color getColor(int value, int maxValue)
-  {
-    if (value * 100 > maxValue * 80) return Color.RED; // > 80%
-    if (value * 100 > maxValue * 50) return Color.YELLOW; // > 80%
-    return Color.GREEN;
   }
 
   private JPanel buildPanel()

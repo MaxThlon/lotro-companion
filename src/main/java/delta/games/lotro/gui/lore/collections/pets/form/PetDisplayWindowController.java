@@ -2,11 +2,11 @@ package delta.games.lotro.gui.lore.collections.pets.form;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Window;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.DeltaWindow;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.lore.collections.pets.CosmeticPetDescription;
@@ -41,7 +41,7 @@ public class PetDisplayWindowController extends DefaultDialogController
   private void setPet(CosmeticPetDescription pet)
   {
     _controller=new PetDisplayPanelController(pet);
-    JDialog dialog=getDialog();
+    DeltaDialog dialog=getDialog();
     Container container=dialog.getContentPane();
     container.removeAll();
     JPanel panel=_controller.getPanel();
@@ -51,7 +51,7 @@ public class PetDisplayWindowController extends DefaultDialogController
     WindowController controller=getParentController();
     if (controller!=null)
     {
-      Window parentWindow=controller.getWindow();
+      DeltaWindow parentWindow=controller.getWindow();
       dialog.setLocationRelativeTo(parentWindow);
     }
     dialog.setResizable(true);

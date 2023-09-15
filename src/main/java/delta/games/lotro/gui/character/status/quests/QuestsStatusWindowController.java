@@ -5,7 +5,6 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -13,12 +12,13 @@ import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
 
+import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.DeltaWindow;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
@@ -81,9 +81,9 @@ public class QuestsStatusWindowController extends DefaultDisplayDialogController
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
     dialog.setTitle("Quests status"); // I18n
     dialog.pack();
@@ -221,7 +221,7 @@ public class QuestsStatusWindowController extends DefaultDisplayDialogController
   private void showQuestStatus(AchievableStatus status)
   {
     QuestStatusDialogController dialog=new QuestStatusDialogController(status,this);
-    Window parentWindow=getWindow();
+    DeltaWindow parentWindow=getWindow();
     dialog.getDialog().setLocationRelativeTo(parentWindow);
     dialog.show(false);
   }

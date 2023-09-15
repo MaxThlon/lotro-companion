@@ -7,9 +7,9 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.List;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.combobox.ItemSelectionListener;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
@@ -119,9 +119,9 @@ public class SingleCharacterCurrencyHistoryWindowController extends DefaultDispl
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(500,380));
     dialog.setPreferredSize(new Dimension(700,500));
     dialog.setTitle("Currencies"); // I18n

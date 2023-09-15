@@ -2,11 +2,11 @@ package delta.games.lotro.gui.lore.collections.mounts.form;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Window;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.DeltaWindow;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.lore.collections.mounts.MountDescription;
@@ -41,7 +41,7 @@ public class MountDisplayWindowController extends DefaultDialogController
   private void setMount(MountDescription mount)
   {
     _controller=new MountDisplayPanelController(mount);
-    JDialog dialog=getDialog();
+    DeltaDialog dialog=getDialog();
     Container container=dialog.getContentPane();
     container.removeAll();
     JPanel panel=_controller.getPanel();
@@ -51,7 +51,7 @@ public class MountDisplayWindowController extends DefaultDialogController
     WindowController controller=getParentController();
     if (controller!=null)
     {
-      Window parentWindow=controller.getWindow();
+      DeltaWindow parentWindow=controller.getWindow();
       dialog.setLocationRelativeTo(parentWindow);
     }
     dialog.setResizable(true);

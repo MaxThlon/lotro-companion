@@ -1,6 +1,5 @@
 package delta.games.lotro.gui.account.status.rewardsTracks.form;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -78,11 +77,8 @@ public class RewardsTrackStatusSummaryPanelController
 
   private JProgressBar buildProgressBar()
   {
-    JProgressBar bar=new JProgressBar(SwingConstants.HORIZONTAL,0,1);
-    bar.setBackground(GuiFactory.getBackgroundColor());
-    bar.setForeground(Color.BLUE);
-    bar.setBorderPainted(true);
-    bar.setStringPainted(true);
+    JProgressBar bar=GuiFactory.buildProgressBar(SwingConstants.HORIZONTAL,0,1);
+    GuiFactory.getGuiPattern().patternize_ProgressBar(bar);
     bar.setPreferredSize(new Dimension(200,25));
     return bar;
   }

@@ -9,9 +9,9 @@ import java.awt.Insets;
 import java.util.List;
 import java.util.Objects;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.combobox.ComboBoxController;
 import delta.common.ui.swing.combobox.ItemSelectionListener;
@@ -58,9 +58,9 @@ public class AggregatedGeoItemsMapWindowController extends DefaultDisplayDialogC
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog ret=super.build();
+    DeltaDialog ret=super.build();
     ret.setTitle("Aggregated geographic items map"); // I18n
     ret.setMinimumSize(new Dimension(400,300));
     ret.pack();

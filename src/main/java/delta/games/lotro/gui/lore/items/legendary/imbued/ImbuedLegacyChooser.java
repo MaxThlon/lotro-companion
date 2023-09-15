@@ -4,8 +4,7 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JDialog;
-
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.classes.ClassDescription;
@@ -35,7 +34,7 @@ public class ImbuedLegacyChooser
     table.selectItem(selectedLegacy);
     // - filter
     // ... none ...
-    JDialog dialog=chooser.getDialog();
+    DeltaDialog dialog=chooser.getDialog();
     // - title
     dialog.setTitle("Choose imbued legacy: ");
     // - dimension

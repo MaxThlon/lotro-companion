@@ -46,10 +46,8 @@ public class FactionStatusEditionGagdgetsController extends AbstractAreaControll
     FactionLevel[] levels=_faction.getLevels();
     int min=levels[0].getTier();
     int max=levels[levels.length-1].getTier();
-    _bar=new JProgressBar(SwingConstants.HORIZONTAL,min,max);
-    _bar.setBackground(GuiFactory.getBackgroundColor());
-    _bar.setBorderPainted(true);
-    _bar.setStringPainted(true);
+    _bar=GuiFactory.buildProgressBar(SwingConstants.HORIZONTAL,min,max);
+    GuiFactory.getGuiPattern().patternize_ProgressBar(_bar);
     _bar.setPreferredSize(new Dimension(200,25));
     // Buttons
     _minus=GuiFactory.buildIconButton("/resources/gui/icons/button_minus.png");

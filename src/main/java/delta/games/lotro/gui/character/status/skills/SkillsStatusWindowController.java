@@ -3,9 +3,9 @@ package delta.games.lotro.gui.character.status.skills;
 import java.awt.Dimension;
 import java.util.List;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaFrame;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
@@ -44,9 +44,9 @@ public class SkillsStatusWindowController extends DefaultWindowController
   }
 
   @Override
-  protected JFrame build()
+  protected DeltaFrame build()
   {
-    JFrame frame=super.build();
+    DeltaFrame frame=super.build();
     frame.setTitle("Skills Status"); // I18n
     frame.pack();
     frame.setSize(frame.getWidth(),INITIAL_HEIGHT);

@@ -5,11 +5,11 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -137,9 +137,9 @@ public class CollectablesStatusWindowController extends DefaultDisplayDialogCont
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog window=super.build();
+    DeltaDialog window=super.build();
     window.setTitle((_type==STATUS_TYPE.PETS)?"Pets Status":"Mounts Status"); // I18n
     window.pack();
     window.setSize(window.getWidth(),INITIAL_HEIGHT);

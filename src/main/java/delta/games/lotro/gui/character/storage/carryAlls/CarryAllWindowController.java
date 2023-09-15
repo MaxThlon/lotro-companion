@@ -2,9 +2,9 @@ package delta.games.lotro.gui.character.storage.carryAlls;
 
 import java.awt.Dimension;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.storage.carryAlls.CarryAllInstance;
@@ -50,7 +50,7 @@ public class CarryAllWindowController extends DefaultDisplayDialogController<Voi
     String title="Carry-all: "+itemName; // I18n
     setTitle(title);
     // Dimensions
-    JDialog dialog=getDialog();
+    DeltaDialog dialog=getDialog();
     dialog.setResizable(true);
     pack();
     Dimension size=dialog.getSize();

@@ -1,8 +1,8 @@
 package delta.games.lotro.gui.character.status.allegiances.summary;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.allegiances.AllegiancesStatusManager;
@@ -33,9 +33,9 @@ public class AllegiancesStatusSummaryWindowController extends DefaultDisplayDial
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setTitle("Allegiances status"); // I18n
     dialog.pack();
     dialog.setResizable(false);

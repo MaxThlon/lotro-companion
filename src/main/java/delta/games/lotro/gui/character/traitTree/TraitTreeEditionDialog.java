@@ -1,8 +1,8 @@
 package delta.games.lotro.gui.character.traitTree;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterData;
@@ -29,9 +29,9 @@ public class TraitTreeEditionDialog extends DefaultFormDialogController<TraitTre
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setTitle("Trait tree edition..."); // I18n
     dialog.setResizable(false);
     return dialog;

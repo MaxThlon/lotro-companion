@@ -5,11 +5,11 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 
+import delta.common.ui.swing.DeltaFrame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.common.ui.swing.windows.WindowController;
@@ -75,9 +75,9 @@ public class TravelsStatusWindowController extends DefaultWindowController
   }
 
   @Override
-  protected JFrame build()
+  protected DeltaFrame build()
   {
-    JFrame frame=super.build();
+    DeltaFrame frame=super.build();
     frame.setTitle("Travels Status"); // I18n
     frame.pack();
     frame.setSize(frame.getWidth(),INITIAL_HEIGHT);

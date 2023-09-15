@@ -3,10 +3,10 @@ package delta.games.lotro.gui.maps.resources.filter;
 import java.util.List;
 
 import javax.swing.JComponent;
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.gui.maps.resources.ResourceNodesLootManager;
@@ -53,7 +53,7 @@ public class ResourceNodeFilterWindowController extends DefaultDialogController
   @Override
   public void configureWindow()
   {
-    JDialog dialog=getDialog();
+    DeltaDialog dialog=getDialog();
     dialog.setTitle("Resource nodes filter"); // I18n
     dialog.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
     dialog.setResizable(false);

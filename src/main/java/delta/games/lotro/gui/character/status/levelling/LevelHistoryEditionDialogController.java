@@ -1,8 +1,8 @@
 package delta.games.lotro.gui.character.status.levelling;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
@@ -33,9 +33,9 @@ public class LevelHistoryEditionDialogController extends DefaultFormDialogContro
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setTitle("Level history editor"); // I18n
     dialog.setResizable(false);
     return dialog;

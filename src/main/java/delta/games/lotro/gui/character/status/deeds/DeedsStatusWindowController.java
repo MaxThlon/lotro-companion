@@ -5,7 +5,6 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -13,12 +12,13 @@ import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
 
+import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.DeltaWindow;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
@@ -87,9 +87,9 @@ public class DeedsStatusWindowController extends DefaultFormDialogController<Ach
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
     dialog.setTitle("Deeds status edition"); // I18n
     dialog.pack();
@@ -240,7 +240,7 @@ public class DeedsStatusWindowController extends DefaultFormDialogController<Ach
   private void editDeedStatus(AchievableStatus status)
   {
     DeedStatusDialogController dialog=new DeedStatusDialogController(status,this);
-    Window parentWindow=getWindow();
+    DeltaWindow parentWindow=getWindow();
     dialog.getDialog().setLocationRelativeTo(parentWindow);
     AchievableStatus notNullIfOk=dialog.editModal();
     if (notNullIfOk!=null)

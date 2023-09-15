@@ -4,10 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.List;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -43,9 +43,9 @@ public class SameCosmeticsWindowController extends DefaultDialogController
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setTitle("Same cosmetics"); // I18n
     dialog.pack();
     int width=dialog.getWidth()+20;

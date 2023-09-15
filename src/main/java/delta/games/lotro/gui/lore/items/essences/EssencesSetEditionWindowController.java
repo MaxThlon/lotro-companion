@@ -1,8 +1,8 @@
 package delta.games.lotro.gui.lore.items.essences;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.BasicCharacterAttributes;
@@ -32,9 +32,9 @@ public class EssencesSetEditionWindowController extends DefaultFormDialogControl
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setMinimumSize(dialog.getPreferredSize());
     return dialog;
   }

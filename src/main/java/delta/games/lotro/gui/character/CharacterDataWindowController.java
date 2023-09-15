@@ -9,12 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import org.apache.log4j.Logger;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -246,7 +246,7 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
   @Override
   public void configureWindow()
   {
-    JDialog dialog=getDialog();
+    DeltaDialog dialog=getDialog();
     // Title
     String name=_data.getName();
     String serverName=_data.getServer();

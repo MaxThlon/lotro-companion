@@ -24,6 +24,7 @@ import delta.games.lotro.utils.maps.Maps;
  */
 public class MapSelectionPanelController
 {
+  private String INVALID_MAP_NAME="Unknown Map id[%d]";
   // Controllers
   private ComboBoxController<Integer> _maps;
   // UI
@@ -61,7 +62,7 @@ public class MapSelectionPanelController
     for(Integer mapId : mapIds)
     {
       GeoreferencedBasemap basemap=getBasemap(mapId.intValue());
-      String mapName=basemap.getName();
+      String mapName=(basemap != null)?basemap.getName():String.format(INVALID_MAP_NAME, mapId);
       ComboBoxItem<Integer> item=new ComboBoxItem<Integer>(mapId,mapName);
       items.add(item);
     }

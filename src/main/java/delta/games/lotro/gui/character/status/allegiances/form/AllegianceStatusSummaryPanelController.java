@@ -80,11 +80,8 @@ public class AllegianceStatusSummaryPanelController
 
   private JProgressBar buildProgressBar()
   {
-    JProgressBar bar=new JProgressBar(SwingConstants.HORIZONTAL,0,1);
-    bar.setBackground(GuiFactory.getBackgroundColor());
-    bar.setForeground(Color.BLUE);
-    bar.setBorderPainted(true);
-    bar.setStringPainted(true);
+    JProgressBar bar=GuiFactory.buildProgressBar(SwingConstants.HORIZONTAL,0,1);
+    GuiFactory.getGuiPattern().patternize_ProgressBar(bar);
     bar.setPreferredSize(new Dimension(200,25));
     return bar;
   }

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaFrame;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.common.utils.misc.Preferences;
 import delta.common.utils.misc.TypedProperties;
@@ -77,9 +77,9 @@ public class CharacterLevelWindowController extends DefaultWindowController
   }
 
   @Override
-  protected JFrame build()
+  protected DeltaFrame build()
   {
-    JFrame frame=super.build();
+    DeltaFrame frame=super.build();
     // Title
     String title="Characters levelling"; // I18n
     frame.setTitle(title);

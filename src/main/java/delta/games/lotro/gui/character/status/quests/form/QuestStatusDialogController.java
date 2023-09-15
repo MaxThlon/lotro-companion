@@ -2,9 +2,9 @@ package delta.games.lotro.gui.character.status.quests.form;
 
 import java.awt.Dimension;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.achievables.AchievableStatus;
@@ -37,9 +37,9 @@ public class QuestStatusDialogController extends DefaultDisplayDialogController<
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     QuestDescription quest=(QuestDescription)_data.getAchievable();
     String questName=quest.getName();
     dialog.setTitle("Quest status: "+questName); // I18n

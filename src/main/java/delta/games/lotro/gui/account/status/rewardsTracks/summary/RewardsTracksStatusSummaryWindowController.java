@@ -1,8 +1,8 @@
 package delta.games.lotro.gui.account.status.rewardsTracks.summary;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.account.status.rewardsTrack.RewardsTracksStatusManager;
@@ -34,9 +34,9 @@ public class RewardsTracksStatusSummaryWindowController extends DefaultDisplayDi
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setTitle(Labels.getLabel("rewards.tracks.status.summary.title"));
     dialog.pack();
     dialog.setResizable(false);

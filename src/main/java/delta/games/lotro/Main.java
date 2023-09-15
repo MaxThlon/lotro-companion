@@ -2,8 +2,7 @@ package delta.games.lotro;
 
 import java.util.Locale;
 
-import javax.swing.JFrame;
-
+import delta.common.ui.swing.DeltaFrame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.utils.l10n.L10nConfiguration;
 import delta.common.utils.l10n.LocalizedFormats;
@@ -25,10 +24,10 @@ public class Main
    */
   public static void main(String[] args)
   {
-    // Init UI
-    GuiFactory.init();
     // Init preferences
     GuiFactory.setPreferences(Config.getInstance().getPreferences());
+    // Init UI
+    GuiFactory.init();
     // Init l10n
     L10nConfiguration l10nCfg=ApplicationConfiguration.getInstance().getL10nConfiguration();
     LocalizedFormats.init(l10nCfg);
@@ -39,7 +38,7 @@ public class Main
     LotroIconsManager.initApplicationIcons();
     // Build main window
     MainFrameController controller=new MainFrameController();
-    JFrame frame=controller.getFrame();
+    DeltaFrame frame=controller.getFrame();
     frame.setVisible(true);
   }
 }

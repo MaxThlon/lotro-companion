@@ -1,9 +1,9 @@
 package delta.games.lotro.gui.character.essences;
 
 import javax.swing.JComponent;
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterData;
@@ -48,9 +48,9 @@ public class EssencesSummaryWindowController extends DefaultDialogController imp
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServer();

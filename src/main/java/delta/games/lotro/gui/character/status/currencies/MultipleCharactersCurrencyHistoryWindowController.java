@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaFrame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.combobox.ItemSelectionListener;
 import delta.common.ui.swing.windows.DefaultWindowController;
@@ -126,9 +126,9 @@ public class MultipleCharactersCurrencyHistoryWindowController extends DefaultWi
   }
 
   @Override
-  protected JFrame build()
+  protected DeltaFrame build()
   {
-    JFrame frame=super.build();
+    DeltaFrame frame=super.build();
     // Title
     String title="Currency history"; // I18n
     frame.setTitle(title);

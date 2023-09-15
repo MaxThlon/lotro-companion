@@ -1,8 +1,10 @@
 package delta.games.lotro.gui.maps.resources;
 
-import javax.swing.JFrame;
+import java.awt.Component;
+
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaFrame;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.dat.data.DataFacade;
@@ -32,9 +34,9 @@ public class ResourcesMapsExplorerWindowController extends DefaultWindowControll
   }
 
   @Override
-  protected JFrame build()
+  protected DeltaFrame build()
   {
-    JFrame frame=super.build();
+    DeltaFrame frame=super.build();
     frame.setTitle("Resources maps explorer"); // I18n
     frame.setResizable(false);
     frame.pack();
@@ -45,7 +47,7 @@ public class ResourcesMapsExplorerWindowController extends DefaultWindowControll
   public void configureWindow()
   {
     // Center on screen
-    getWindow().setLocationRelativeTo(null);
+    getWindow().setLocationRelativeTo((Component)null);
   }
 
   @Override

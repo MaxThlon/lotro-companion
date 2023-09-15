@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -12,8 +11,9 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
+import delta.common.ui.swing.DeltaComponent;
+import delta.common.ui.swing.DeltaWindow;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.WindowController;
 import delta.common.utils.NumericTools;
@@ -125,7 +125,8 @@ public class ResourcesMapsExplorerPanelController implements ActionListener
     // Update filter
     _filterWindow.setItems(mgr,sourceItems);
     // Pack
-    Window window=(Window)SwingUtilities.getRoot(_panel);
+    DeltaComponent component=GuiFactory.getRoot(_panel);
+    DeltaWindow window=(component instanceof DeltaWindow)?(DeltaWindow)component:null;
     if (window!=null)
     {
       window.pack();

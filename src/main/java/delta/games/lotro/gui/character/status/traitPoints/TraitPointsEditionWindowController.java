@@ -2,9 +2,9 @@ package delta.games.lotro.gui.character.status.traitPoints;
 
 import java.awt.Dimension;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterSummary;
@@ -33,9 +33,9 @@ public class TraitPointsEditionWindowController extends DefaultFormDialogControl
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
     dialog.setSize(800,dialog.getHeight());
     String name=_summary.getName();

@@ -1,8 +1,8 @@
 package delta.games.lotro.gui.character.status.reputation.form;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.reputation.FactionStatus;
@@ -33,9 +33,9 @@ public class FactionEditionDialogController extends DefaultFormDialogController<
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     Faction faction=_data.getFaction();
     String rawName=faction.getName();
     String name=ContextRendering.render(this,rawName);

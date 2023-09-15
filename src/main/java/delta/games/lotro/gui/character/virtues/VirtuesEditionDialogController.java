@@ -2,9 +2,9 @@ package delta.games.lotro.gui.character.virtues;
 
 import java.awt.Dimension;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.stats.virtues.VirtuesSet;
@@ -33,9 +33,9 @@ public class VirtuesEditionDialogController extends DefaultFormDialogController<
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setTitle("Virtues edition"); // I18n
     dialog.setResizable(true);
     dialog.setMinimumSize(new Dimension(700,650));

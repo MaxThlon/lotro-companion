@@ -3,9 +3,9 @@ package delta.games.lotro.gui.character.status.emotes;
 import java.awt.Dimension;
 import java.util.List;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaFrame;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
@@ -45,9 +45,9 @@ public class EmotesStatusWindowController extends DefaultWindowController
   }
 
   @Override
-  protected JFrame build()
+  protected DeltaFrame build()
   {
-    JFrame frame=super.build();
+    DeltaFrame frame=super.build();
     frame.setTitle("Emotes Status"); // I18n
     frame.pack();
     frame.setSize(frame.getWidth(),INITIAL_HEIGHT);

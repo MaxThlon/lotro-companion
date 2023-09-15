@@ -3,7 +3,6 @@ package delta.games.lotro.gui.lore.items;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import delta.common.ui.swing.DeltaWindow;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.BasicCharacterAttributes;
@@ -314,7 +314,7 @@ public class ItemInstanceEditionPanelController
   {
     _panel.revalidate();
     _panel.repaint();
-    Window parent=_parent.getWindow();
+    DeltaWindow parent=_parent.getWindow();
     parent.pack();
     parent.setMinimumSize(parent.getPreferredSize());
   }

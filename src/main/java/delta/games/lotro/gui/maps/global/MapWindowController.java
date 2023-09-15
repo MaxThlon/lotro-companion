@@ -5,10 +5,10 @@ import java.awt.Component;
 import java.util.List;
 
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaFrame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.games.lotro.dat.data.DataFacade;
@@ -52,7 +52,8 @@ public class MapWindowController extends DefaultWindowController implements Navi
    * Identifier for this window.
    */
   public static final String IDENTIFIER="MAP";
-
+  public static final int INVALID_MAP_KEY=-1;
+  
   // Data
   private MapsManager _mapsManager;
   private SimpleMarkersProvider _markersProvider;
@@ -179,15 +180,16 @@ public class MapWindowController extends DefaultWindowController implements Navi
   }
 
   @Override
-  protected JFrame build()
+  protected DeltaFrame build()
   {
-    JFrame frame=super.build();
+    DeltaFrame frame=super.build();
+    GuiFactory.getGuiPattern().patternize_Frame(frame);
     // Set initial map (Middle-earth or Bree)
     GeoreferencedBasemapsManager basemapsManager=getBasemapsManager();
     ParchmentMap rootMap=ParchmentMapsManager.getInstance().getRootMap();
     int initialMapId=(rootMap!=null)?rootMap.getIdentifier():268437716;
     GeoreferencedBasemap map=basemapsManager.getMapById(initialMapId);
-    setMap(map.getIdentifier());
+    setMap((map != null)?map.getIdentifier():INVALID_MAP_KEY);
     // Menu
     _navigationMenuController=new NavigationMenuController(_navigation);
     JMenuBar menuBar=_navigationMenuController.getMenuBar();
@@ -196,7 +198,6 @@ public class MapWindowController extends DefaultWindowController implements Navi
     frame.setLocation(100,100);
     frame.pack();
     frame.setResizable(false);
-    frame.getContentPane().setBackground(GuiFactory.getBackgroundColor());
     return frame;
   }
 

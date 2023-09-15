@@ -1,12 +1,10 @@
 package delta.games.lotro.gui.character.status.collections.summary;
 
-import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
-import javax.swing.SwingConstants;
 
 import delta.common.ui.swing.GuiFactory;
 import delta.games.lotro.character.status.collections.CollectionStatus;
@@ -48,11 +46,8 @@ public class SingleCollectionStatusGadgetsController
   {
     int nbCompleted=status.getCompletedCount();
     int nbTotal=status.getTotalCount();
-    JProgressBar bar=new JProgressBar(SwingConstants.HORIZONTAL,0,nbTotal);
-    bar.setBackground(GuiFactory.getBackgroundColor());
-    bar.setForeground(Color.BLUE);
-    bar.setBorderPainted(true);
-    bar.setStringPainted(true);
+    JProgressBar bar=GuiFactory.buildProgressBar(JProgressBar.HORIZONTAL, 0, nbTotal);
+    GuiFactory.getGuiPattern().patternize_ProgressBar(bar);
     bar.setPreferredSize(new Dimension(200,25));
     bar.setValue(nbCompleted);
     String label=nbCompleted+"/"+nbTotal;

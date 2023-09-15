@@ -4,21 +4,20 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
-import javax.swing.SwingUtilities;
 
+import delta.common.ui.swing.DeltaFrame;
+import delta.common.ui.swing.DeltaWindow;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.toolbar.ToolbarController;
@@ -168,9 +167,9 @@ public class CharacterFileWindowController extends DefaultWindowController imple
   }
 
   @Override
-  protected JFrame build()
+  protected DeltaFrame build()
   {
-    JFrame frame=super.build();
+    DeltaFrame frame=super.build();
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServerName();
@@ -499,7 +498,7 @@ public class CharacterFileWindowController extends DefaultWindowController imple
     {
       controller=new CharacterDataWindowController(this,_toon,data);
       windowsManager.registerWindow(controller);
-      Window thisWindow=SwingUtilities.getWindowAncestor(_toonsTable.getTable());
+      DeltaWindow thisWindow=GuiFactory.getWindowAncestor(_toonsTable.getTable());
       controller.getWindow().setLocationRelativeTo(thisWindow);
     }
     controller.bringToFront();
@@ -547,7 +546,7 @@ public class CharacterFileWindowController extends DefaultWindowController imple
         if (doIt)
         {
           boolean ok=CharacterDataIO.saveInfo(toFile,data);
-          Window window=getWindow();
+          DeltaWindow window=getWindow();
           if (ok)
           {
             GuiFactory.showInformationDialog(window,"Export OK!","OK!"); // I18n

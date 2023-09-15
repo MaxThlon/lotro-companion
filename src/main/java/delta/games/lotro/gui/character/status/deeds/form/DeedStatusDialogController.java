@@ -2,9 +2,9 @@ package delta.games.lotro.gui.character.status.deeds.form;
 
 import java.awt.Dimension;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.achievables.AchievableStatus;
@@ -47,9 +47,9 @@ public class DeedStatusDialogController extends DefaultFormDialogController<Achi
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setTitle("Deed status edition..."); // I18n
     dialog.setResizable(true);
     dialog.pack();

@@ -1,8 +1,8 @@
 package delta.games.lotro.gui.lore.items;
 
-import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import delta.common.ui.swing.DeltaDialog;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.lore.items.Item;
@@ -29,9 +29,9 @@ public class ItemInstanceMainAttrsEditionWindowController extends DefaultFormDia
   }
 
   @Override
-  protected JDialog build()
+  protected DeltaDialog build()
   {
-    JDialog dialog=super.build();
+    DeltaDialog dialog=super.build();
     dialog.setMinimumSize(dialog.getPreferredSize());
     dialog.setResizable(false);
     return dialog;
