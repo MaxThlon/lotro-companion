@@ -104,6 +104,7 @@ public class ItemFilterConfiguration
     _components[ItemChooserFilterComponent.STAT.ordinal()]=true;
     _components[ItemChooserFilterComponent.WEAPON_TYPE.ordinal()]=true;
     _components[ItemChooserFilterComponent.DAMAGE_TYPE.ordinal()]=true;
+    _components[ItemChooserFilterComponent.SLAYER_GENUS.ordinal()]=true;
     _components[ItemChooserFilterComponent.ARMOUR_TYPE.ordinal()]=true;
     _components[ItemChooserFilterComponent.SHIELD_TYPE.ordinal()]=true;
     // Requirements for the current character: class, proficiencies, level
@@ -121,6 +122,10 @@ public class ItemFilterConfiguration
   public void forItemExplorerFilter()
   {
     boolean isLive=LotroCoreConfig.isLive();
+    if (isLive)
+    {
+      _components[ItemChooserFilterComponent.TIER.ordinal()]=true;
+    }
     _components[ItemChooserFilterComponent.NAME.ordinal()]=true;
     _components[ItemChooserFilterComponent.QUALITY.ordinal()]=true;
     _components[ItemChooserFilterComponent.CATEGORY.ordinal()]=true;
@@ -132,6 +137,7 @@ public class ItemFilterConfiguration
     _components[ItemChooserFilterComponent.LOCATION.ordinal()]=true;
     _components[ItemChooserFilterComponent.WEAPON_TYPE.ordinal()]=true;
     _components[ItemChooserFilterComponent.DAMAGE_TYPE.ordinal()]=true;
+    _components[ItemChooserFilterComponent.SLAYER_GENUS.ordinal()]=true;
     _components[ItemChooserFilterComponent.ARMOUR_TYPE.ordinal()]=true;
     _components[ItemChooserFilterComponent.SHIELD_TYPE.ordinal()]=true;
     _components[ItemChooserFilterComponent.GENERIC_CHARACTER_CLASS.ordinal()]=true;
@@ -157,7 +163,7 @@ public class ItemFilterConfiguration
    * Init from a collection of items.
    * @param items Items to use.
    */
-  public void initFromItems(List<Item> items)
+  public void initFromItems(List<? extends Item> items)
   {
     _armourTypes.clear();
     _shieldTypes.clear();

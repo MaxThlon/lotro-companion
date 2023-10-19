@@ -26,6 +26,7 @@ import delta.common.utils.l10n.L10n;
 import delta.games.lotro.character.skills.SkillDescription;
 import delta.games.lotro.character.stats.BasicStatsSet;
 import delta.games.lotro.character.traits.TraitDescription;
+import delta.games.lotro.common.Duration;
 import delta.games.lotro.common.enums.EquipmentCategory;
 import delta.games.lotro.common.money.Money;
 import delta.games.lotro.common.stats.StatUtils;
@@ -49,8 +50,11 @@ import delta.games.lotro.lore.items.Weapon;
 import delta.games.lotro.lore.items.details.GrantedElement;
 import delta.games.lotro.lore.items.details.ItemDetailsManager;
 import delta.games.lotro.lore.items.details.ItemReputation;
+import delta.games.lotro.lore.items.details.ItemUsageCooldown;
 import delta.games.lotro.lore.items.details.ItemXP;
 import delta.games.lotro.lore.items.details.VirtueXP;
+import delta.games.lotro.lore.items.details.WeaponSlayerInfo;
+import delta.games.lotro.lore.items.essences.Essence;
 import delta.games.lotro.lore.items.legendary2.EnhancementRune;
 import delta.games.lotro.lore.items.legendary2.EnhancementRunesManager;
 import delta.games.lotro.lore.items.legendary2.TraceriesManager;
@@ -301,7 +305,19 @@ public class ItemDisplayPanelController extends AbstractNavigablePanelController
       String category=_item.getSubCategory();
       if ((category!=null) && (category.length()>0))
       {
-        ret.add("Category: "+category);
+        String label=category;
+        if (_item instanceof Essence)
+        {
+          Essence essence=(Essence)_item;
+          label=label+" ("+essence.getType().getLabel();
+          Integer tier=essence.getTier();
+          if (tier!=null)
+          {
+            label=label+", tier "+tier;
+          }
+          label=label+")";
+        }
+        ret.add("Category: "+label);
       }
     }
     if (_item instanceof Weapon)
@@ -520,6 +536,29 @@ public class ItemDisplayPanelController extends AbstractNavigablePanelController
         ret.add(GuiFactory.buildLabel(label),c);
         y++;
       }
+    }
+    // Weapon slayer
+    List<WeaponSlayerInfo> weaponSlayerInfos=mgr.getItemDetails(WeaponSlayerInfo.class);
+    if (!weaponSlayerInfos.isEmpty())
+    {
+      for(WeaponSlayerInfo weaponSlayerInfo : weaponSlayerInfos)
+      {
+        GridBagConstraints c=new GridBagConstraints(0,y,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
+        String label=weaponSlayerInfo.getLabel();
+        ret.add(GuiFactory.buildLabel(label),c);
+        y++;
+      }
+    }
+    // Usage Cooldown
+    ItemUsageCooldown cooldown=mgr.getFirstItemDetail(ItemUsageCooldown.class);
+    if (cooldown!=null)
+    {
+      GridBagConstraints c=new GridBagConstraints(0,y,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(0,0,0,0),0,0);
+      float duration=cooldown.getDuration();
+      String durationStr=Duration.getDurationString((int)duration);
+      String label="Cooldown: "+durationStr;
+      ret.add(GuiFactory.buildLabel(label),c);
+      y++;
     }
     return ret;
   }
