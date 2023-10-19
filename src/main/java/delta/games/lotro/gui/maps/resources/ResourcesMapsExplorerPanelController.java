@@ -12,8 +12,8 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.DeltaComponent;
-import delta.common.ui.swing.DeltaWindow;
+import delta.common.ui.swing.Component;
+import delta.common.ui.swing.Window;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.WindowController;
 import delta.common.utils.NumericTools;
@@ -125,8 +125,8 @@ public class ResourcesMapsExplorerPanelController implements ActionListener
     // Update filter
     _filterWindow.setItems(mgr,sourceItems);
     // Pack
-    DeltaComponent component=GuiFactory.getRoot(_panel);
-    DeltaWindow window=(component instanceof DeltaWindow)?(DeltaWindow)component:null;
+    Component component=GuiFactory.getRoot(_panel);
+    Window window=(component instanceof Window)?(Window)component:null;
     if (window!=null)
     {
       window.pack();

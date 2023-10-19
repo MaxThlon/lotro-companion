@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import delta.common.ui.swing.DeltaFrame;
+import delta.common.ui.swing.Frame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.DefaultWindowController;
@@ -53,9 +53,9 @@ public class MountsExplorerWindowController extends DefaultWindowController
   }
 
   @Override
-  protected DeltaFrame build()
+  protected Frame build()
   {
-    DeltaFrame frame=super.build();
+    Frame frame=super.build();
     frame.setTitle("Mounts explorer"); // 18n
     frame.setMinimumSize(new Dimension(400,300));
     frame.setSize(950,700);

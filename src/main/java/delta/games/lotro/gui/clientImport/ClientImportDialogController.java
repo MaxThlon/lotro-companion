@@ -11,8 +11,8 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import delta.common.ui.swing.DeltaDialog;
-import delta.common.ui.swing.DeltaWindow;
+import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.Window;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -55,9 +55,9 @@ public class ClientImportDialogController extends DefaultDialogController implem
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     dialog.setModal(false);
     dialog.setTitle("Import from local client"); // I18n
     dialog.setResizable(false);
@@ -65,7 +65,7 @@ public class ClientImportDialogController extends DefaultDialogController implem
     WindowController controller=getParentController();
     if (controller!=null)
     {
-      DeltaWindow parentWindow=controller.getWindow();
+      Window parentWindow=controller.getWindow();
       dialog.setLocationRelativeTo(parentWindow);
     }
     return dialog;

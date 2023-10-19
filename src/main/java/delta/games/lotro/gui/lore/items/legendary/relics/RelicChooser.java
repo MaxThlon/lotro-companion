@@ -3,7 +3,7 @@ package delta.games.lotro.gui.lore.items.legendary.relics;
 import java.awt.Dimension;
 import java.util.List;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.lore.items.EquipmentLocation;
@@ -38,7 +38,7 @@ public class RelicChooser
     relicsTable.selectItem(selectedRelic);
     // - filter
     chooser.setFilter(filter,filterUiController);
-    DeltaDialog dialog=chooser.getDialog();
+    Dialog dialog=chooser.getDialog();
     // - title
     dialog.setTitle("Choose relic: ");
     // - dimension

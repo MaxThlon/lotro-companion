@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import delta.common.ui.swing.DeltaWindow;
+import delta.common.ui.swing.Window;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.combobox.ComboBoxController;
 import delta.common.ui.swing.combobox.ItemSelectionListener;
@@ -296,7 +296,7 @@ public class CustomStatsEditionPanelController
     _panel.repaint();
     if (_parent!=null)
     {
-      DeltaWindow window=_parent.getWindow();
+      Window window=_parent.getWindow();
       window.setMinimumSize(window.getPreferredSize());
       window.pack();
     }

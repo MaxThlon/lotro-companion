@@ -2,7 +2,7 @@ package delta.games.lotro.gui.character.status.hobbies;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.DeltaFrame;
+import delta.common.ui.swing.Frame;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
@@ -36,9 +36,9 @@ public class HobbiesStatusWindowController extends DefaultWindowController
   }
 
   @Override
-  protected DeltaFrame build()
+  protected Frame build()
   {
-    DeltaFrame frame=super.build();
+    Frame frame=super.build();
     frame.setTitle("Hobbies Status"); // I18n
     frame.pack();
     frame.setResizable(false);

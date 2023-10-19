@@ -8,7 +8,9 @@ public interface ConfigurationListener
 {
   /**
    * Called when the application configuration was updated.
-   * @param newConfiguration the new configuration.
+   * @param newConfiguration {@code ApplicationConfiguration} the new configuration.
+   * @param modificationStatus {@code ModificationStatus}
    */
-  void configurationUpdated(ApplicationConfiguration newConfiguration);
+  void configurationUpdated(ApplicationConfiguration newConfiguration,
+                            ModificationStatus modificationStatus);
 }

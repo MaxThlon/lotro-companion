@@ -13,7 +13,7 @@ import javax.swing.JTabbedPane;
 
 import org.apache.log4j.Logger;
 
-import delta.common.ui.swing.DeltaFrame;
+import delta.common.ui.swing.Frame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.games.lotro.dat.data.DataFacade;
@@ -96,9 +96,9 @@ public class InstanceMapsWindowController extends DefaultWindowController
   }
 
   @Override
-  protected DeltaFrame build()
+  protected Frame build()
   {
-    DeltaFrame frame=super.build();
+    Frame frame=super.build();
     // Title
     String title="Instance maps: "+_pe.getName(); // I18n
     frame.setTitle(title);

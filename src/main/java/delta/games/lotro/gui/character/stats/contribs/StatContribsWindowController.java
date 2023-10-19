@@ -3,7 +3,7 @@ package delta.games.lotro.gui.character.stats.contribs;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterData;
@@ -42,9 +42,9 @@ public class StatContribsWindowController extends DefaultDialogController
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServer();

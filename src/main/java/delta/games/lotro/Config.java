@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.imageio.spi.IIORegistry;
+
 import delta.common.utils.misc.Preferences;
 import delta.common.utils.misc.TypedProperties;
 import delta.common.utils.text.EncodingNames;
@@ -18,6 +20,11 @@ import delta.games.lotro.config.LotroCoreConfig;
  */
 public final class Config
 {
+  static {
+    IIORegistry registry = IIORegistry.getDefaultInstance();
+    registry.registerServiceProvider(new com.realityinteractive.imageio.tga.TGAImageReaderSpi());
+  }
+
   private static Config _instance=new Config();
 
   private File _mapsDir;

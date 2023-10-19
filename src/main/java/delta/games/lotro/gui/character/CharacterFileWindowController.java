@@ -16,8 +16,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 
-import delta.common.ui.swing.DeltaFrame;
-import delta.common.ui.swing.DeltaWindow;
+import delta.common.ui.swing.Frame;
+import delta.common.ui.swing.Window;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.toolbar.ToolbarController;
@@ -167,9 +167,9 @@ public class CharacterFileWindowController extends DefaultWindowController imple
   }
 
   @Override
-  protected DeltaFrame build()
+  protected Frame build()
   {
-    DeltaFrame frame=super.build();
+    Frame frame=super.build();
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServerName();
@@ -498,7 +498,7 @@ public class CharacterFileWindowController extends DefaultWindowController imple
     {
       controller=new CharacterDataWindowController(this,_toon,data);
       windowsManager.registerWindow(controller);
-      DeltaWindow thisWindow=GuiFactory.getWindowAncestor(_toonsTable.getTable());
+      Window thisWindow=GuiFactory.getWindowAncestor(_toonsTable.getTable());
       controller.getWindow().setLocationRelativeTo(thisWindow);
     }
     controller.bringToFront();
@@ -546,7 +546,7 @@ public class CharacterFileWindowController extends DefaultWindowController imple
         if (doIt)
         {
           boolean ok=CharacterDataIO.saveInfo(toFile,data);
-          DeltaWindow window=getWindow();
+          Window window=getWindow();
           if (ok)
           {
             GuiFactory.showInformationDialog(window,"Export OK!","OK!"); // I18n

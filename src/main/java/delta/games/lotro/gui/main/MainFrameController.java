@@ -1,8 +1,11 @@
 package delta.games.lotro.gui.main;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,8 +19,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import delta.common.ui.swing.DeltaFrame;
-import delta.common.ui.swing.DeltaWindow;
+import delta.common.ui.swing.Frame;
+import delta.common.ui.swing.Window;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.toolbar.ToolbarController;
 import delta.common.ui.swing.toolbar.ToolbarIconItem;
@@ -46,11 +49,13 @@ import delta.games.lotro.gui.maps.global.MapWindowController;
 import delta.games.lotro.gui.maps.resources.ResourcesMapsExplorerWindowController;
 import delta.games.lotro.gui.misc.paypal.PaypalButtonController;
 import delta.games.lotro.gui.toon.ToonsManagementController;
+import delta.games.lotro.gui.translation.TranslationWindowController;
 import delta.games.lotro.gui.utils.SharedUiUtils;
 import delta.games.lotro.gui.utils.l10n.Labels;
 import delta.games.lotro.utils.cfg.ApplicationConfiguration;
 import delta.games.lotro.utils.dat.DatInterface;
 import delta.games.lotro.utils.maps.Maps;
+import delta.games.lotro.utils.plugin.PluginWindowController;
 
 /**
  * Controller for the main frame.
@@ -74,6 +79,8 @@ public class MainFrameController extends DefaultWindowController implements Acti
   private static final String MAP_COMMAND="mapCommand";
   private static final String CLIENT_SYNCHRO_COMMAND="clientSynchroCommand";
   private static final String SETTINGS_COMMAND="settingsCommand";
+  private static final String TRANSLATE_COMMAND="translateCommand";
+  private static final String PLUGIN_COMMAND="pluginCommand";
   private static final String ABOUT_COMMAND="aboutCommand";
 
   private ToolbarController _toolbarTracking;
@@ -99,20 +106,20 @@ public class MainFrameController extends DefaultWindowController implements Acti
   }
 
   @Override
-  protected DeltaFrame build()
+  protected Frame build()
   {
-    DeltaFrame frame=super.build();
+    Frame frame=super.build();
     boolean isLive=LotroCoreConfig.isLive();
     String appNameKey=isLive?"main.window.title.lc":"main.window.title.lld";
     String appName=Labels.getLabel(appNameKey);
     frame.setTitle(appName);
     if (isLive)
     {
-      frame.setSize(920,400);
+      frame.setPreferredSize(new Dimension(920,400));
     }
     else
     {
-      frame.setSize(600,130);
+      frame.setPreferredSize(new Dimension(600,130));
     }
     frame.setLocation(100,100);
     return frame;
@@ -246,6 +253,7 @@ public class MainFrameController extends DefaultWindowController implements Acti
   protected JComponent buildContents()
   {
     JPanel ret=GuiFactory.buildPanel(new BorderLayout());
+
     // Toolbars
     JPanel toolbarsPanel=buildToolbarsPanel();
     ret.add(toolbarsPanel,BorderLayout.NORTH);
@@ -270,30 +278,32 @@ public class MainFrameController extends DefaultWindowController implements Acti
   private JPanel buildToolbarsPanel()
   {
     boolean isLive=LotroCoreConfig.isLive();
-
-    JPanel mainPanel=GuiFactory.buildPanel(new BorderLayout());
-    JPanel panel=GuiFactory.buildPanel(new FlowLayout(FlowLayout.LEFT));
-    mainPanel.add(panel, BorderLayout.LINE_START);
+    JPanel panel=GuiFactory.buildPanel(new GridBagLayout());
+    GridBagConstraints c=new GridBagConstraints(0,0,1,1,0.0,0.0,GridBagConstraints.WEST,GridBagConstraints.NONE,new Insets(2,5,2,0),0,0);
     if (isLive)
     {
       _toolbarTracking=buildToolBarTracking();
-      panel.add(_toolbarTracking.getToolBar());
+      panel.add(_toolbarTracking.getToolBar(),c);
+      c.gridx++;
     }
     ToolbarController loreToolbar=_loreCtrl.buildToolbarLore(isLive);
-    panel.add(loreToolbar.getToolBar());
-
+    panel.add(loreToolbar.getToolBar(),c);
+    c.gridx++;
     _toolbarMaps=buildToolBarMaps(isLive);
-    panel.add(_toolbarMaps.getToolBar());
-
+    panel.add(_toolbarMaps.getToolBar(),c);
+    c.gridx++;
     _toolbarMisc=buildToolBarMisc(isLive);
-    panel.add(_toolbarMisc.getToolBar());
-
-    panel=GuiFactory.buildPanel(new GridBagLayout());
-    mainPanel.add(panel, BorderLayout.LINE_END);
-
+    panel.add(_toolbarMisc.getToolBar(),c);
+    c.gridx++;
+    JPanel padding=GuiFactory.buildPanel(new FlowLayout());
+    c=new GridBagConstraints(c.gridx,0,1,1,1.0,0.0,GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,new Insets(2,5,2,0),0,0);
+    c.gridx++;
+    panel.add(padding,c);
+    c=new GridBagConstraints(c.gridx,0,1,1,0.0,0.0,GridBagConstraints.EAST,GridBagConstraints.NONE,new Insets(2,5,2,5),0,0);
     _paypalButton=new PaypalButtonController();
-    panel.add(_paypalButton.getButton());
-    return mainPanel;
+    panel.add(_paypalButton.getButton(),c);
+    c.gridx++;
+    return panel;
   }
 
   private ToolbarController buildToolBarTracking()
@@ -396,6 +406,21 @@ public class MainFrameController extends DefaultWindowController implements Acti
       ToolbarIconItem importIconItem=new ToolbarIconItem(CLIENT_SYNCHRO_COMMAND,importIconPath,CLIENT_SYNCHRO_COMMAND,importTooltip,importAltText);
       model.addToolbarIconItem(importIconItem);
     }
+
+    // Translation
+    String translationIconPath=SharedUiUtils.getToolbarIconPath("about");
+    String translationTooltip=Labels.getLabel("main.window.toolbar.about.tooltip");
+    String translationAltText=Labels.getLabel("main.window.toolbar.about.altText");
+    ToolbarIconItem translationIconItem=new ToolbarIconItem(TRANSLATE_COMMAND,translationIconPath,TRANSLATE_COMMAND,translationTooltip,translationAltText);
+    model.addToolbarIconItem(translationIconItem);
+
+    // Plugin
+    String pluginIconPath=SharedUiUtils.getToolbarIconPath("about");
+    String pluginTooltip=Labels.getLabel("main.window.toolbar.about.tooltip");
+    String pluginAltText=Labels.getLabel("main.window.toolbar.about.altText");
+    ToolbarIconItem pluginIconItem=new ToolbarIconItem(PLUGIN_COMMAND,pluginIconPath,PLUGIN_COMMAND,pluginTooltip,pluginAltText);
+    model.addToolbarIconItem(pluginIconItem);
+
     // About
     String aboutIconPath=SharedUiUtils.getToolbarIconPath("about");
     String aboutTooltip=Labels.getLabel("main.window.toolbar.about.tooltip");
@@ -578,6 +603,14 @@ public class MainFrameController extends DefaultWindowController implements Acti
     {
       doSettings();
     }
+    else if (TRANSLATE_COMMAND.equals(cmd))
+    {
+      doTranslate();
+    }
+    else if (PLUGIN_COMMAND.equals(cmd))
+    {
+      doPlugin();
+    }
     else if (ABOUT_COMMAND.equals(cmd))
     {
       doAbout();
@@ -597,16 +630,42 @@ public class MainFrameController extends DefaultWindowController implements Acti
     controller.bringToFront();
   }
 
+  private void doTranslate()
+  {
+    String id=TranslationWindowController.IDENTIFIER;
+    WindowController controller=_windowsManager.getWindow(id);
+    if (controller==null)
+    {
+      controller=new TranslationWindowController();
+      _windowsManager.registerWindow(controller);
+      controller.getWindow().setLocationRelativeTo(getFrame());
+    }
+    controller.bringToFront();
+  }
+
+  private void doPlugin()
+  {
+    String id=PluginWindowController.IDENTIFIER;
+    WindowController controller=_windowsManager.getWindow(id);
+    if (controller==null)
+    {
+      controller=new PluginWindowController();
+      _windowsManager.registerWindow(controller);
+      controller.getWindow().setLocationRelativeTo(getFrame());
+    }
+    controller.bringToFront();
+  }
+
   private void doAbout()
   {
     String id=AboutDialogController.IDENTIFIER;
     WindowController controller=_windowsManager.getWindow(id);
     if (controller==null)
     {
-      DeltaFrame thisFrame=getFrame();
+      Frame thisFrame=getFrame();
       controller=new AboutDialogController(this);
       _windowsManager.registerWindow(controller);
-      DeltaWindow w=controller.getWindow();
+      Window w=controller.getWindow();
       w.setLocationRelativeTo(thisFrame);
       Point p=w.getLocation();
       w.setLocation(p.x+100,p.y+100);
@@ -620,10 +679,10 @@ public class MainFrameController extends DefaultWindowController implements Acti
     WindowController controller=_windowsManager.getWindow(id);
     if (controller==null)
     {
-      DeltaFrame thisFrame=getFrame();
+      Frame thisFrame=getFrame();
       controller=new CreditsDialogController(this);
       _windowsManager.registerWindow(controller);
-      DeltaWindow w=controller.getWindow();
+      Window w=controller.getWindow();
       w.setLocationRelativeTo(thisFrame);
     }
     controller.bringToFront();

@@ -6,7 +6,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.gui.maps.resources.ResourceNodesLootManager;
@@ -53,7 +53,7 @@ public class ResourceNodeFilterWindowController extends DefaultDialogController
   @Override
   public void configureWindow()
   {
-    DeltaDialog dialog=getDialog();
+    Dialog dialog=getDialog();
     dialog.setTitle("Resource nodes filter"); // I18n
     dialog.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
     dialog.setResizable(false);

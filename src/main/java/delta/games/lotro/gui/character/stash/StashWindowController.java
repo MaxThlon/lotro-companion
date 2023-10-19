@@ -15,7 +15,7 @@ import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.border.TitledBorder;
 
-import delta.common.ui.swing.DeltaFrame;
+import delta.common.ui.swing.Frame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.toolbar.ToolbarController;
@@ -103,9 +103,9 @@ public class StashWindowController extends DefaultWindowController implements Ac
   }
 
   @Override
-  protected DeltaFrame build()
+  protected Frame build()
   {
-    DeltaFrame frame=super.build();
+    Frame frame=super.build();
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServerName();

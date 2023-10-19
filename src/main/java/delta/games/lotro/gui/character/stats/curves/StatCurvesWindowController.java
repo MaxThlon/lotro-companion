@@ -3,7 +3,7 @@ package delta.games.lotro.gui.character.stats.curves;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterData;
@@ -37,9 +37,9 @@ public class StatCurvesWindowController extends DefaultDialogController
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     // Title
     String title=_configuration.getTitle();
     dialog.setTitle(title);

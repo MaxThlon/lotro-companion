@@ -3,8 +3,8 @@ package delta.games.lotro.gui.about;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.DeltaDialog;
-import delta.common.ui.swing.DeltaWindow;
+import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.Window;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.gui.utils.l10n.Labels;
@@ -34,15 +34,15 @@ public class CreditsDialogController extends DefaultDialogController
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     dialog.setTitle(Labels.getLabel("credits.title"));
     dialog.pack();
     WindowController controller=getParentController();
     if (controller!=null)
     {
-      DeltaWindow parentWindow=controller.getWindow();
+      Window parentWindow=controller.getWindow();
       dialog.setLocationRelativeTo(parentWindow);
     }
     dialog.setResizable(false);

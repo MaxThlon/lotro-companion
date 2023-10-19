@@ -10,7 +10,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import delta.common.ui.swing.DeltaFrame;
+import delta.common.ui.swing.Frame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.games.lotro.account.Account;
@@ -82,9 +82,9 @@ public class AccountWindowController extends DefaultWindowController
   }
 
   @Override
-  protected DeltaFrame build()
+  protected Frame build()
   {
-    DeltaFrame frame=super.build();
+    Frame frame=super.build();
     // Title
     String name=_account.getDisplayName();
     String title=Labels.getLabel("account.window.title",new Object[] {name});

@@ -6,7 +6,7 @@ import java.awt.Dimension;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.DeltaFrame;
+import delta.common.ui.swing.Frame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.games.lotro.kinship.Kinship;
@@ -57,9 +57,9 @@ public class KinshipWindowController extends DefaultWindowController
   }
 
   @Override
-  protected DeltaFrame build()
+  protected Frame build()
   {
-    DeltaFrame frame=super.build();
+    Frame frame=super.build();
     // Title
     String name=_kinship.getName();
     String title="Kinship: "+name; // I18n

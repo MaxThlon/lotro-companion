@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.combobox.ComboBoxController;
 import delta.common.ui.swing.text.dates.DateEditionController;
@@ -46,9 +46,9 @@ public class AccountSummaryDialogController extends DefaultFormDialogController<
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     dialog.setTitle(Labels.getLabel("account.summary.edition.title"));
     dialog.setResizable(false);
     return dialog;

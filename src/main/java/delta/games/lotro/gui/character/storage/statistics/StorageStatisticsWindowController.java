@@ -6,7 +6,7 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.storage.StoredItem;
@@ -47,9 +47,9 @@ public class StorageStatisticsWindowController extends DefaultDialogController
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
     dialog.setSize(400,400);
     dialog.setResizable(true);

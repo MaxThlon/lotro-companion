@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.lists.LabelProvider;
 import delta.common.ui.swing.lists.OrderedItemsSelectionController;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
@@ -78,9 +78,9 @@ public final class CharactersChooserController extends DefaultFormDialogControll
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     dialog.setTitle("Choose characters..."); // I18n
     return dialog;
   }

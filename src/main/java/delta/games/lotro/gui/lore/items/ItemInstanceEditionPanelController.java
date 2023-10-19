@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import delta.common.ui.swing.DeltaWindow;
+import delta.common.ui.swing.Window;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.BasicCharacterAttributes;
@@ -314,7 +314,7 @@ public class ItemInstanceEditionPanelController
   {
     _panel.revalidate();
     _panel.repaint();
-    DeltaWindow parent=_parent.getWindow();
+    Window parent=_parent.getWindow();
     parent.pack();
     parent.setMinimumSize(parent.getPreferredSize());
   }

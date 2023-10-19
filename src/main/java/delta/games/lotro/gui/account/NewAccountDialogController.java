@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -37,9 +37,9 @@ public class NewAccountDialogController extends DefaultFormDialogController<Obje
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     String title=Labels.getLabel("account.new.window.title");
     dialog.setTitle(title);
     dialog.setResizable(false);
@@ -120,7 +120,7 @@ public class NewAccountDialogController extends DefaultFormDialogController<Obje
   private void showErrorMessage(String errorMsg)
   {
     String title=Labels.getLabel("account.new.creation.error.title");
-    DeltaDialog dialog=getDialog();
+    Dialog dialog=getDialog();
     GuiFactory.showErrorDialog(dialog,errorMsg,title);
   }
 

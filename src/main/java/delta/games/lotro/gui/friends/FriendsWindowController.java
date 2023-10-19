@@ -4,7 +4,7 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.account.AccountOnServer;
@@ -41,9 +41,9 @@ public class FriendsWindowController extends DefaultDisplayDialogController<Frie
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog frame=super.build();
+    Dialog frame=super.build();
     // Title
     frame.setTitle("Friends"); // I18n
     frame.setMinimumSize(new Dimension(650,350));

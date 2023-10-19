@@ -13,6 +13,11 @@
   <dependencies>
     <dependency>
       <groupId>com.dam.delta4j</groupId>
+      <artifactId>delta-lotro-companion-lua</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.dam.delta4j</groupId>
       <artifactId>delta-lotro-dat-utils</artifactId>
       <version>10.3</version>
     </dependency>
@@ -58,6 +63,16 @@
         <groupId>jfree</groupId>
         <artifactId>jfreechart</artifactId>
         <version>1.0.13</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-configuration2</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jgit</groupId>
+      <artifactId>org.eclipse.jgit</artifactId>
+      <version>3.5.0.201409260305-r</version>
     </dependency>
     <dependency>
         <groupId>org.slf4j</groupId>

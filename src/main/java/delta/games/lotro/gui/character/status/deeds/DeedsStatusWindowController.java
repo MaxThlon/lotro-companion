@@ -17,8 +17,8 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
 
-import delta.common.ui.swing.DeltaDialog;
-import delta.common.ui.swing.DeltaWindow;
+import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.Window;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
@@ -87,9 +87,9 @@ public class DeedsStatusWindowController extends DefaultFormDialogController<Ach
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
     dialog.setTitle("Deeds status edition"); // I18n
     dialog.pack();
@@ -240,7 +240,7 @@ public class DeedsStatusWindowController extends DefaultFormDialogController<Ach
   private void editDeedStatus(AchievableStatus status)
   {
     DeedStatusDialogController dialog=new DeedStatusDialogController(status,this);
-    DeltaWindow parentWindow=getWindow();
+    Window parentWindow=getWindow();
     dialog.getDialog().setLocationRelativeTo(parentWindow);
     AchievableStatus notNullIfOk=dialog.editModal();
     if (notNullIfOk!=null)

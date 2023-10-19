@@ -3,7 +3,7 @@ package delta.games.lotro.gui.lore.items.legendary.passives;
 import java.awt.Dimension;
 import java.util.List;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.common.effects.Effect;
@@ -30,7 +30,7 @@ public class PassiveChooser
     table.selectItem(selectedPassive);
     // - filter
     // ... none ...
-    DeltaDialog dialog=chooser.getDialog();
+    Dialog dialog=chooser.getDialog();
     // - title
     dialog.setTitle("Choose a passive: ");
     // - dimension

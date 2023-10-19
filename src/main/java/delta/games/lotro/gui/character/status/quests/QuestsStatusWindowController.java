@@ -17,8 +17,8 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
 
-import delta.common.ui.swing.DeltaDialog;
-import delta.common.ui.swing.DeltaWindow;
+import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.Window;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
@@ -81,9 +81,9 @@ public class QuestsStatusWindowController extends DefaultDisplayDialogController
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
     dialog.setTitle("Quests status"); // I18n
     dialog.pack();
@@ -221,7 +221,7 @@ public class QuestsStatusWindowController extends DefaultDisplayDialogController
   private void showQuestStatus(AchievableStatus status)
   {
     QuestStatusDialogController dialog=new QuestStatusDialogController(status,this);
-    DeltaWindow parentWindow=getWindow();
+    Window parentWindow=getWindow();
     dialog.getDialog().setLocationRelativeTo(parentWindow);
     dialog.show(false);
   }

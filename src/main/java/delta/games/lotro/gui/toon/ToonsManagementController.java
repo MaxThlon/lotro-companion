@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import delta.common.ui.swing.DeltaWindow;
+import delta.common.ui.swing.Window;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.tables.TableColumnsChooserController;
@@ -279,7 +279,7 @@ public class ToonsManagementController implements ActionListener,GenericEventsLi
   private void importToon()
   {
     FileChooserController ctrl=new FileChooserController("import", "Import character..."); // I18n
-    DeltaWindow window=_parentController.getWindow();
+    Window window=_parentController.getWindow();
     File fromFile=ctrl.chooseFile(window,"Import");
     if (fromFile!=null)
     {

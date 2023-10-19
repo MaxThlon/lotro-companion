@@ -9,7 +9,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -36,9 +36,9 @@ public class TraitTreeSetupAttrsDialogController extends DefaultFormDialogContro
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     dialog.setTitle("Edit trait tree setup..."); // I18n
     dialog.setResizable(false);
     return dialog;
@@ -111,7 +111,7 @@ public class TraitTreeSetupAttrsDialogController extends DefaultFormDialogContro
   private void showErrorMessage(String errorMsg)
   {
     String title="Trait tree setup edition"; // I18n
-    DeltaDialog dialog=getDialog();
+    Dialog dialog=getDialog();
     GuiFactory.showErrorDialog(dialog,errorMsg,title);
   }
 

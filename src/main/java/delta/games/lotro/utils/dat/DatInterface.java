@@ -4,6 +4,7 @@ import delta.games.lotro.dat.data.DatConfiguration;
 import delta.games.lotro.dat.data.DataFacade;
 import delta.games.lotro.utils.cfg.ApplicationConfiguration;
 import delta.games.lotro.utils.cfg.ConfigurationListener;
+import delta.games.lotro.utils.cfg.ModificationStatus;
 
 /**
  * Interface to DAT files management.
@@ -34,7 +35,8 @@ public class DatInterface implements ConfigurationListener
   }
 
   @Override
-  public void configurationUpdated(ApplicationConfiguration newConfiguration)
+  public void configurationUpdated(ApplicationConfiguration newConfiguration,
+                                   ModificationStatus modificationStatus)
   {
     if (_currentFacade!=null)
     {

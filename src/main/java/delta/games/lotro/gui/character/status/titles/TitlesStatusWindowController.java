@@ -12,7 +12,7 @@ import javax.swing.Box;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
@@ -65,9 +65,9 @@ public class TitlesStatusWindowController extends DefaultDisplayDialogController
   }
 
   @Override
-  protected DeltaDialog build()
+  protected Dialog build()
   {
-    DeltaDialog dialog=super.build();
+    Dialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
     dialog.setTitle("Titles status"); // I18n
     dialog.pack();

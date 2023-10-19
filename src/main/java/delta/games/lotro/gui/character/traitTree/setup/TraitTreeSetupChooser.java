@@ -2,7 +2,7 @@ package delta.games.lotro.gui.character.traitTree.setup;
 
 import java.awt.Dimension;
 
-import delta.common.ui.swing.DeltaDialog;
+import delta.common.ui.swing.Dialog;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.common.utils.misc.TypedProperties;
@@ -62,7 +62,7 @@ public class TraitTreeSetupChooser
 
     // Build and configure chooser
     final ObjectChoiceWindowController<TraitTreeSetup> chooser=new ObjectChoiceWindowController<TraitTreeSetup>(parent,prefs,table);
-    DeltaDialog dialog=chooser.getDialog();
+    Dialog dialog=chooser.getDialog();
     // Title
     dialog.setTitle("Choose trait tree setup:"); // I18n
     // Dimension

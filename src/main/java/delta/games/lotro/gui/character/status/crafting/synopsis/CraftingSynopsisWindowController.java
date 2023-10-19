@@ -7,7 +7,7 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.DeltaFrame;
+import delta.common.ui.swing.Frame;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.common.utils.misc.Preferences;
 import delta.common.utils.misc.TypedProperties;
@@ -64,9 +64,9 @@ public class CraftingSynopsisWindowController extends DefaultWindowController
   }
 
   @Override
-  protected DeltaFrame build()
+  protected Frame build()
   {
-    DeltaFrame frame=super.build();
+    Frame frame=super.build();
     // Title
     String title="Crafting synopsis"; // I18n
     frame.setTitle(title);
