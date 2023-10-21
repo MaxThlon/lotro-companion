@@ -4,7 +4,7 @@ import java.awt.Dimension;
 import java.util.Collections;
 import java.util.List;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.common.utils.collections.filters.Filter;
@@ -52,7 +52,7 @@ public class TraceryChooser
     // Filter
     chooser.setFilter(filter,filterController);
     // Force the creation of the dialog, so that the selection works!
-    Dialog dialog=chooser.getDialog();
+    JDialog dialog=chooser.getDialog();
     // Add details column
     TraceriesTableBuilder.addDetailsColumn(chooser,traceriesTable);
     // Selection

@@ -2,7 +2,7 @@ package delta.games.lotro.gui.character.storage.bags;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.storage.bags.BagsManager;
@@ -57,7 +57,7 @@ public class BagWindowController extends DefaultDisplayDialogController<Void>
     String title="Bag #"+_bagIndex; // I18n
     setTitle(title);
     // Dimensions
-    Dialog dialog=getDialog();
+    JDialog dialog=getDialog();
     dialog.setResizable(false);
     pack();
   }

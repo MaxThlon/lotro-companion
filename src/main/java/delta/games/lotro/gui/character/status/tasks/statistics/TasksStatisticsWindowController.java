@@ -7,7 +7,7 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.common.utils.collections.filters.Filter;
@@ -74,9 +74,9 @@ public class TasksStatisticsWindowController extends DefaultDialogController
   }
 
   @Override
-  protected Dialog build()
+  protected JDialog build()
   {
-    Dialog dialog=super.build();
+    JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
     dialog.setSize(700,700);
     dialog.setResizable(true);

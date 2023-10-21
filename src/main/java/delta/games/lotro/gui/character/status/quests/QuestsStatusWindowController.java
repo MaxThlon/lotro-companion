@@ -17,7 +17,7 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.Window;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
@@ -81,9 +81,9 @@ public class QuestsStatusWindowController extends DefaultDisplayDialogController
   }
 
   @Override
-  protected Dialog build()
+  protected JDialog build()
   {
-    Dialog dialog=super.build();
+    JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(400,300));
     dialog.setTitle("Quests status"); // I18n
     dialog.pack();

@@ -7,7 +7,7 @@ import java.io.File;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -47,9 +47,9 @@ public class ConfigurationDialogController extends DefaultFormDialogController<A
   }
 
   @Override
-  protected Dialog build()
+  protected JDialog build()
   {
-    Dialog dialog=super.build();
+    JDialog dialog=super.build();
     dialog.setTitle("Configuration..."); // I18n
     dialog.setResizable(true);
     return dialog;
@@ -185,7 +185,7 @@ public class ConfigurationDialogController extends DefaultFormDialogController<A
   private void showErrorMessage(String errorMsg)
   {
     String title="Configuration"; // I18n
-    Dialog dialog=getDialog();
+    JDialog dialog=getDialog();
     GuiFactory.showErrorDialog(dialog,errorMsg,title);
   }
 

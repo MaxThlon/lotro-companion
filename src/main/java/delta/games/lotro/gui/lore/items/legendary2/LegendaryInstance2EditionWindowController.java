@@ -2,7 +2,7 @@ package delta.games.lotro.gui.lore.items.legendary2;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.lore.items.Item;
@@ -31,9 +31,9 @@ public class LegendaryInstance2EditionWindowController extends DefaultFormDialog
   }
 
   @Override
-  protected Dialog build()
+  protected JDialog build()
   {
-    Dialog dialog=super.build();
+    JDialog dialog=super.build();
     dialog.setResizable(false);
     return dialog;
   }

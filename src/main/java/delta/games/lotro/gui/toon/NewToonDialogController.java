@@ -11,7 +11,7 @@ import javax.swing.border.TitledBorder;
 
 import org.apache.log4j.Logger;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.combobox.ComboBoxController;
 import delta.common.ui.swing.combobox.ItemSelectionListener;
@@ -68,9 +68,9 @@ public class NewToonDialogController extends DefaultFormDialogController<Object>
   }
 
   @Override
-  protected Dialog build()
+  protected JDialog build()
   {
-    Dialog dialog=super.build();
+    JDialog dialog=super.build();
     dialog.setTitle("New character..."); // I18n
     dialog.setResizable(false);
     return dialog;
@@ -250,7 +250,7 @@ public class NewToonDialogController extends DefaultFormDialogController<Object>
   private void showErrorMessage(String errorMsg)
   {
     String title="Character creation"; // I18n
-    Dialog dialog=getDialog();
+    JDialog dialog=getDialog();
     GuiFactory.showErrorDialog(dialog,errorMsg,title);
   }
 

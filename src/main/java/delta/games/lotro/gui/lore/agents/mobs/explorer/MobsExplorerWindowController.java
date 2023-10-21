@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import delta.common.ui.swing.Frame;
+import delta.common.ui.swing.JFrame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.DefaultWindowController;
@@ -51,9 +51,9 @@ public class MobsExplorerWindowController extends DefaultWindowController
   }
 
   @Override
-  protected Frame build()
+  protected JFrame build()
   {
-    Frame frame=super.build();
+    JFrame frame=super.build();
     frame.setTitle("Mobs explorer"); // 18n
     frame.setMinimumSize(new Dimension(400,300));
     frame.setSize(950,700);

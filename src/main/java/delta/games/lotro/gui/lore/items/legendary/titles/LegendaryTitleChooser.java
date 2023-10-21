@@ -3,7 +3,7 @@ package delta.games.lotro.gui.lore.items.legendary.titles;
 import java.awt.Dimension;
 import java.util.List;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.lore.items.legendary.titles.LegendaryTitle;
@@ -36,7 +36,7 @@ public class LegendaryTitleChooser
     table.selectItem(selectedTitle);
     // - filter
     chooser.setFilter(filter,filterUiController);
-    Dialog dialog=chooser.getDialog();
+    JDialog dialog=chooser.getDialog();
     // - title
     dialog.setTitle("Choose legendary title: ");
     // - dimension

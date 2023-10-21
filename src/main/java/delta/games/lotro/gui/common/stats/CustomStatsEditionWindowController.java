@@ -2,7 +2,7 @@ package delta.games.lotro.gui.common.stats;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.common.stats.StatsManager;
@@ -36,9 +36,9 @@ public class CustomStatsEditionWindowController extends DefaultFormDialogControl
   }
 
   @Override
-  protected Dialog build()
+  protected JDialog build()
   {
-    Dialog dialog=super.build();
+    JDialog dialog=super.build();
     dialog.setMinimumSize(dialog.getPreferredSize());
     return dialog;
   }

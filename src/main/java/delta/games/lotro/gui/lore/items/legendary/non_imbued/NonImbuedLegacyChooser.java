@@ -3,7 +3,7 @@ package delta.games.lotro.gui.lore.items.legendary.non_imbued;
 import java.awt.Dimension;
 import java.util.List;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.classes.ClassDescription;
@@ -32,7 +32,7 @@ public class NonImbuedLegacyChooser
     table.selectItem(selectedLegacy);
     // - filter
     // ... none ...
-    Dialog dialog=chooser.getDialog();
+    JDialog dialog=chooser.getDialog();
     // - title
     dialog.setTitle("Choose non-imbued legacy: ");
     // - dimension

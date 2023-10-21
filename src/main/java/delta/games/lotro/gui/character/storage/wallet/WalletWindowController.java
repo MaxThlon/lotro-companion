@@ -4,7 +4,7 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
@@ -59,7 +59,7 @@ public class WalletWindowController extends DefaultDisplayDialogController<Void>
     String title="Wallet for "+toonName+"@"+serverName+" ("+accountName+")"; // I18n
     setTitle(title);
     // Dimensions
-    Dialog dialog=getDialog();
+    JDialog dialog=getDialog();
     dialog.setMinimumSize(new Dimension(450,300));
     dialog.setResizable(true);
     pack();

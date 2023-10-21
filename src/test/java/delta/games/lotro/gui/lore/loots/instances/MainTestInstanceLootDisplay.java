@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import delta.common.ui.swing.windows.DefaultWindowController;
-import delta.common.ui.swing.Frame;
+import delta.common.ui.swing.JFrame;
 import delta.games.lotro.gui.lore.loot.instances.InstanceLootDisplayPanelController;
 import delta.games.lotro.lore.instances.PrivateEncounter;
 import delta.games.lotro.lore.instances.PrivateEncountersManager;
@@ -37,7 +37,7 @@ public class MainTestInstanceLootDisplay
     JPanel panel=panelCtrl.getPanel();
     if (panel!=null)
     {
-      Frame frame=window.getFrame();
+      JFrame frame=window.getFrame();
       Container contentPane=frame.getContentPane();
       contentPane.add(panel,BorderLayout.CENTER);
       frame.pack();

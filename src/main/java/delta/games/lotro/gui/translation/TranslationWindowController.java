@@ -5,7 +5,7 @@ import java.awt.Dimension;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Frame;
+import delta.common.ui.swing.JFrame;
 import delta.common.ui.swing.windows.DefaultWindowController;
 
 /**
@@ -32,9 +32,9 @@ public class TranslationWindowController extends DefaultWindowController
   }
 
   @Override
-  protected Frame build()
+  protected JFrame build()
   {
-    Frame frame=super.build();
+    JFrame frame=super.build();
     // Title
     String title="Translation"; // I18n
     frame.setTitle(title);

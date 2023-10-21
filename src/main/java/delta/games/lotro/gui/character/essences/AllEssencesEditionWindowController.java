@@ -3,7 +3,7 @@ package delta.games.lotro.gui.character.essences;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Frame;
+import delta.common.ui.swing.JFrame;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterData;
@@ -48,9 +48,9 @@ public class AllEssencesEditionWindowController extends DefaultWindowController 
   }
 
   @Override
-  protected Frame build()
+  protected JFrame build()
   {
-    Frame frame=super.build();
+    JFrame frame=super.build();
     // Title
     String name=_toon.getName();
     String serverName=_toon.getServer();

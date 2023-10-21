@@ -8,7 +8,7 @@ import javax.swing.JComponent;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Frame;
+import delta.common.ui.swing.JFrame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultWindowController;
 import delta.games.lotro.dat.data.DataFacade;
@@ -180,9 +180,9 @@ public class MapWindowController extends DefaultWindowController implements Navi
   }
 
   @Override
-  protected Frame build()
+  protected JFrame build()
   {
-    Frame frame=super.build();
+    JFrame frame=super.build();
     GuiFactory.getGuiPattern().patternize_Frame(frame);
     // Set initial map (Middle-earth or Bree)
     GeoreferencedBasemapsManager basemapsManager=getBasemapsManager();

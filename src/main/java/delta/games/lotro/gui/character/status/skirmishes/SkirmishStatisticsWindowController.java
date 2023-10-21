@@ -7,7 +7,7 @@ import java.awt.Insets;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -51,9 +51,9 @@ public class SkirmishStatisticsWindowController extends DefaultDisplayDialogCont
   }
 
   @Override
-  protected Dialog build()
+  protected JDialog build()
   {
-    Dialog dialog=super.build();
+    JDialog dialog=super.build();
     dialog.setMinimumSize(new Dimension(1000,300));
     dialog.setTitle("Skirmish statistics"); // I18n
     dialog.setSize(new Dimension(1200,600));

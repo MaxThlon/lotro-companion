@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
@@ -66,9 +66,9 @@ public class ObjectChoiceWindowController<T> extends DefaultFormDialogController
   }
 
   @Override
-  protected Dialog build()
+  protected JDialog build()
   {
-    Dialog dialog=super.build();
+    JDialog dialog=super.build();
     dialog.setTitle("Choose:"); // I18n
     dialog.setMinimumSize(new Dimension(400,300));
     dialog.setSize(1000,dialog.getHeight());

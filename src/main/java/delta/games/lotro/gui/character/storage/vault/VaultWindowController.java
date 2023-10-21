@@ -4,7 +4,7 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.CharacterFile;
@@ -58,7 +58,7 @@ public class VaultWindowController extends DefaultDisplayDialogController<Void>
     String title=seed+" for "+toonName+"@"+serverName+" ("+accountName+")";
     setTitle(title);
     // Dimensions
-    Dialog dialog=getDialog();
+    JDialog dialog=getDialog();
     dialog.setResizable(true);
     pack();
     Dimension size=dialog.getSize();

@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import delta.common.ui.swing.Frame;
+import delta.common.ui.swing.JFrame;
 import delta.common.ui.swing.Window;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.toolbar.ToolbarController;
@@ -106,9 +106,9 @@ public class MainFrameController extends DefaultWindowController implements Acti
   }
 
   @Override
-  protected Frame build()
+  protected JFrame build()
   {
-    Frame frame=super.build();
+    JFrame frame=super.build();
     boolean isLive=LotroCoreConfig.isLive();
     String appNameKey=isLive?"main.window.title.lc":"main.window.title.lld";
     String appName=Labels.getLabel(appNameKey);
@@ -662,7 +662,7 @@ public class MainFrameController extends DefaultWindowController implements Acti
     WindowController controller=_windowsManager.getWindow(id);
     if (controller==null)
     {
-      Frame thisFrame=getFrame();
+      JFrame thisFrame=getFrame();
       controller=new AboutDialogController(this);
       _windowsManager.registerWindow(controller);
       Window w=controller.getWindow();
@@ -679,7 +679,7 @@ public class MainFrameController extends DefaultWindowController implements Acti
     WindowController controller=_windowsManager.getWindow(id);
     if (controller==null)
     {
-      Frame thisFrame=getFrame();
+      JFrame thisFrame=getFrame();
       controller=new CreditsDialogController(this);
       _windowsManager.registerWindow(controller);
       Window w=controller.getWindow();

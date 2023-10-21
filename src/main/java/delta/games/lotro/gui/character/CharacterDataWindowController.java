@@ -14,7 +14,7 @@ import javax.swing.border.TitledBorder;
 
 import org.apache.log4j.Logger;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.windows.DefaultFormDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -246,7 +246,7 @@ public class CharacterDataWindowController extends DefaultFormDialogController<C
   @Override
   public void configureWindow()
   {
-    Dialog dialog=getDialog();
+    JDialog dialog=getDialog();
     // Title
     String name=_data.getName();
     String serverName=_data.getServer();

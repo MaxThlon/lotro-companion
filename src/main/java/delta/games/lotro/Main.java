@@ -4,7 +4,7 @@ import java.util.Locale;
 
 import javax.imageio.spi.IIORegistry;
 
-import delta.common.ui.swing.Frame;
+import delta.common.ui.swing.JFrame;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.utils.l10n.L10nConfiguration;
 import delta.common.utils.l10n.LocalizedFormats;
@@ -42,7 +42,7 @@ public class Main
     LotroIconsManager.initApplicationIcons();
     // Build main window
     MainFrameController controller=new MainFrameController();
-    Frame frame=controller.getFrame();
+    JFrame frame=controller.getFrame();
     frame.pack();
     frame.setVisible(true);
   }

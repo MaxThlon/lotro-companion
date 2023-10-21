@@ -5,7 +5,7 @@ import java.awt.Container;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.Window;
 import delta.common.ui.swing.windows.DefaultDialogController;
 import delta.common.ui.swing.windows.WindowController;
@@ -41,7 +41,7 @@ public class MountDisplayWindowController extends DefaultDialogController
   private void setMount(MountDescription mount)
   {
     _controller=new MountDisplayPanelController(mount);
-    Dialog dialog=getDialog();
+    JDialog dialog=getDialog();
     Container container=dialog.getContentPane();
     container.removeAll();
     JPanel panel=_controller.getPanel();

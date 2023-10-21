@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.w3c.dom.Element;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.utils.xml.DOMParsingTools;
 import delta.games.lotro.lore.items.Item;
@@ -51,7 +51,7 @@ public class MainTestItemInstancesChooser
 
     // Build and configure chooser
     ObjectChoiceWindowController<ItemInstance<? extends Item>> chooser=new ObjectChoiceWindowController<ItemInstance<? extends Item>>(null,null,itemsTable);
-    Dialog dialog=chooser.getDialog();
+    JDialog dialog=chooser.getDialog();
     // - title
     dialog.setTitle("Choose item:");
     // - dimension

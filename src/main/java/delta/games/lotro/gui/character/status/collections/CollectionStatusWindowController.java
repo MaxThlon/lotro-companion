@@ -2,7 +2,7 @@ package delta.games.lotro.gui.character.status.collections;
 
 import javax.swing.JPanel;
 
-import delta.common.ui.swing.Dialog;
+import delta.common.ui.swing.JDialog;
 import delta.common.ui.swing.windows.DefaultDisplayDialogController;
 import delta.common.ui.swing.windows.WindowController;
 import delta.games.lotro.character.status.collections.CollectionStatus;
@@ -56,7 +56,7 @@ public class CollectionStatusWindowController extends DefaultDisplayDialogContro
     // Title
     setTitle("Collection status"); // I18n
     // Dimensions
-    Dialog dialog=getDialog();
+    JDialog dialog=getDialog();
     dialog.setResizable(false);
     pack();
   }
