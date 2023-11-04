@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
+import delta.common.framework.module.ModuleManager;
 import delta.common.ui.swing.JFrame;
 import delta.common.ui.swing.windows.DefaultWindowController;
 
@@ -63,6 +64,7 @@ public class PluginWindowController extends DefaultWindowController
   @Override
   public void dispose()
   {
+    ModuleManager.getInstance().closeJobExecutor();
     if (_controller!=null)
     {
       _controller.dispose();

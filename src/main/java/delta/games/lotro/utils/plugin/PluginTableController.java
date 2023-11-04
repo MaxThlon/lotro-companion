@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.swing.JTable;
 
+import delta.common.framework.console.ConsoleManager;
 import delta.common.framework.plugin.PluginManager;
 import delta.common.ui.swing.area.AbstractAreaController;
 import delta.common.ui.swing.area.AreaController;
@@ -15,9 +16,7 @@ import delta.common.ui.swing.tables.DefaultTableColumnController;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.tables.ListDataProvider;
 import delta.common.ui.swing.tables.TableColumnsManager;
-import delta.games.lotro.character.status.traitPoints.TraitPoint;
 import delta.games.lotro.client.plugin.Plugin;
-import delta.games.lotro.lore.quests.Achievable;
 
 /**
  * @author MaxThlon
@@ -89,18 +88,6 @@ public class PluginTableController extends AbstractAreaController
         new DefaultTableColumnController<Plugin,String>("name", "name",String.class,keyCell); // 18n
     keyColumn.setWidthSpecs(100,-1,100);
     ret.add(keyColumn);
-
-    DefaultTableColumnController<Plugin,String> startLuaColumn=table.buildButtonColumn("startLua", "startLua", 100);
-    startLuaColumn.setActionListener(new ActionListener()
-    {
-      @Override
-      public void actionPerformed(ActionEvent e)
-      {
-        Plugin plugin=(Plugin)e.getSource();
-        _pluginManager.startLua();
-      }
-    });
-    ret.add(startLuaColumn);
     
     DefaultTableColumnController<Plugin,String> executeColumn=table.buildButtonColumn("execute", "execute", 100);
     executeColumn.setActionListener(new ActionListener()
@@ -108,8 +95,9 @@ public class PluginTableController extends AbstractAreaController
       @Override
       public void actionPerformed(ActionEvent e)
       {
+        ConsoleManager.getInstance().activateByModule();
         Plugin plugin=(Plugin)e.getSource();
-        _pluginManager.execute(plugin);
+        _pluginManager.bootstrapLotro(plugin);
       }
     });
     ret.add(executeColumn);
@@ -123,7 +111,6 @@ public class PluginTableController extends AbstractAreaController
   {
     List<String> columnIds=new ArrayList<String>();
     columnIds.add("name");
-    columnIds.add("startLua");
     columnIds.add("execute");
     columnIds.add("translate");
     return columnIds;

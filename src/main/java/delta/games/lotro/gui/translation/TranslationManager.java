@@ -20,7 +20,7 @@ import delta.common.utils.i18n.MultilocalesTranslator;
 import delta.games.lotro.config.labels.AvailableLabelsDefinition;
 import delta.games.lotro.config.labels.DefinitionOfAvailableLabels;
 import delta.games.lotro.gui.utils.l10n.Labels;
-import delta.games.lotro.lua.LuaRunner;
+import delta.games.lotro.lua.LuaModule;
 import delta.games.lotro.lua.LuaMultilocalesTranslator;
 
 /**
