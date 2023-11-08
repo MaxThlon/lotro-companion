@@ -14,14 +14,10 @@ import org.eclipse.jgit.diff.HistogramDiff;
 import org.eclipse.jgit.diff.RawText;
 import org.eclipse.jgit.diff.RawTextComparator;
 
-import delta.common.framework.jobs.JobPool;
-import delta.common.framework.jobs.MultiThreadedJobExecutor;
 import delta.common.utils.i18n.MultilocalesTranslator;
 import delta.games.lotro.config.labels.AvailableLabelsDefinition;
 import delta.games.lotro.config.labels.DefinitionOfAvailableLabels;
 import delta.games.lotro.gui.utils.l10n.Labels;
-import delta.games.lotro.lua.LuaModule;
-import delta.games.lotro.lua.LuaMultilocalesTranslator;
 
 /**
  * Manager for translations.

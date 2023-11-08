@@ -50,9 +50,10 @@ public class LotroPluginConfiguration extends PluginConfiguration
   }
 
   /**
-   * Get the user data path for skins.
+   * Get the user data path for plugins.
    * @return a directory path.
    */
+  @Override
   public Path getPluginsPath()
   {
     Path pluginsPath;
@@ -71,6 +72,26 @@ public class LotroPluginConfiguration extends PluginConfiguration
       }
     }
     return pluginsPath;
+  }
+  
+  @Override
+  public Path getPluginDataPath()
+  {
+    Path pluginDataPath;
+    switch (_pluginAppPath)
+    {
+      case APPLICATION_PATH_CONFIGURATION:
+      default:
+        pluginDataPath=super.getPluginDataPath();
+        break;
+
+      case LOTRO_APPLICATION_PATH_CONFIGURATION: {
+        ApplicationPathConfiguration appPathConfig=_applicationCfg.getLotroPathConfiguration();
+        pluginDataPath=appPathConfig.getUserPath().resolve(PLUGIN_DATA_PATH);
+        break;
+      }
+    }
+    return pluginDataPath;
   }
 
   @Override

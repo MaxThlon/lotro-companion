@@ -16,6 +16,7 @@ import delta.common.ui.swing.tables.DefaultTableColumnController;
 import delta.common.ui.swing.tables.GenericTableController;
 import delta.common.ui.swing.tables.ListDataProvider;
 import delta.common.ui.swing.tables.TableColumnsManager;
+import delta.games.lotro.character.CharacterFile;
 import delta.games.lotro.client.plugin.Plugin;
 
 /**
@@ -27,6 +28,7 @@ public class PluginTableController extends AbstractAreaController
   PluginManager _pluginManager;
   // Data
   //private TypedProperties _prefs;
+  private List<CharacterFile> _toons;
   List<Plugin> _plugins;
   
   // GUI
@@ -37,10 +39,13 @@ public class PluginTableController extends AbstractAreaController
    * Constructor
    * @param parent .
    * @param pluginManager . 
+   * @param toons .
    */
   public PluginTableController(AreaController parent,
-                               PluginManager pluginManager) {
+                               PluginManager pluginManager,
+                               List<CharacterFile> toons) {
     super(parent);
+    _toons=toons;
     _pluginManager=pluginManager;
     _plugins=_pluginManager.getPlugins();
 
@@ -97,7 +102,7 @@ public class PluginTableController extends AbstractAreaController
       {
         ConsoleManager.getInstance().activateByModule();
         Plugin plugin=(Plugin)e.getSource();
-        _pluginManager.bootstrapLotro(plugin);
+        _pluginManager.bootstrapLotro(plugin, (!_toons.isEmpty())?_toons.get(0):null);
       }
     });
     ret.add(executeColumn);
