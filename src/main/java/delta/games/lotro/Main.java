@@ -2,10 +2,8 @@ package delta.games.lotro;
 
 import java.util.Locale;
 
-import javax.imageio.spi.IIORegistry;
-
-import delta.common.ui.swing.JFrame;
 import delta.common.ui.swing.GuiFactory;
+import delta.common.ui.swing.JFrame;
 import delta.common.utils.l10n.L10nConfiguration;
 import delta.common.utils.l10n.LocalizedFormats;
 import delta.games.lotro.config.LotroCoreConfig;

@@ -2,6 +2,7 @@ package delta.games.lotro.gui.translation;
 
 import java.util.Locale;
 
+import delta.common.framework.i18n.ApacheTranslator;
 import delta.common.utils.i18n.MultilocalesTranslator;
 import delta.common.utils.i18n.Translator;
 
@@ -38,8 +39,8 @@ public class Translation
   public void setTranslation(Locale locale, String value) {
     Translator translator=_multilocalesTranslator.getTranslator(locale);
     
-    if (translator instanceof TranslatorEx) {
-      ((TranslatorEx)translator).setTranslation(_key, value);
+    if (translator instanceof ApacheTranslator) {
+      ((ApacheTranslator)translator).setTranslation(_key, value);
     }
   }
 }

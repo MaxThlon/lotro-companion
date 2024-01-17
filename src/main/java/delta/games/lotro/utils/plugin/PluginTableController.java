@@ -94,18 +94,19 @@ public class PluginTableController extends AbstractAreaController
     keyColumn.setWidthSpecs(100,-1,100);
     ret.add(keyColumn);
     
-    DefaultTableColumnController<Plugin,String> executeColumn=table.buildButtonColumn("execute", "execute", 100);
-    executeColumn.setActionListener(new ActionListener()
+    DefaultTableColumnController<Plugin,String> loadColumn=table.buildButtonColumn("load", "load", 100);
+    loadColumn.setActionListener(new ActionListener()
     {
       @Override
       public void actionPerformed(ActionEvent e)
       {
         ConsoleManager.getInstance().activateByModule();
         Plugin plugin=(Plugin)e.getSource();
-        _pluginManager.bootstrapLotro(plugin, (!_toons.isEmpty())?_toons.get(0):null);
+        _pluginManager.bootstrapLotro((!_toons.isEmpty())?_toons.get(0):null);
+        _pluginManager.loadPlugin(plugin);
       }
     });
-    ret.add(executeColumn);
+    ret.add(loadColumn);
     
     //ret.add(table.buildButtonColumn("translate", "translate", 100));
 
@@ -116,7 +117,7 @@ public class PluginTableController extends AbstractAreaController
   {
     List<String> columnIds=new ArrayList<String>();
     columnIds.add("name");
-    columnIds.add("execute");
+    columnIds.add("load");
     columnIds.add("translate");
     return columnIds;
   }

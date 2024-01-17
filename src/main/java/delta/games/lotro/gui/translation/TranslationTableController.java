@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import delta.common.framework.translation.LocalizedEntity;
 import delta.common.ui.swing.GuiFactory;
 import delta.common.ui.swing.area.AbstractAreaController;
 import delta.common.ui.swing.area.AreaController;
@@ -29,6 +30,7 @@ public class TranslationTableController extends AbstractAreaController implement
 {
   //Data
   //private TypedProperties _prefs;
+  LocalizedEntity _localizedEntity;
   Set<Locale> _locales;
   List<Translation> _translations;
   
@@ -40,13 +42,16 @@ public class TranslationTableController extends AbstractAreaController implement
   /**
    * Constructor
    * @param parent .
+   * @param localizedEntity .
    * @param locales .
    * @param translations 
    */
   public TranslationTableController(AreaController parent,
+                                    LocalizedEntity localizedEntity,
                                     Set<Locale> locales,
                                     List<Translation> translations) {
     super(parent);
+    _localizedEntity=localizedEntity;
     _locales=locales;
     _translations=translations;
 
@@ -158,16 +163,11 @@ public class TranslationTableController extends AbstractAreaController implement
   }
   
   /**
-   * Get the managed table.
-   * @return the managed table.
+   * @return a LocalizedEntity.
    */
-  public JTable getTable()
+  public LocalizedEntity getLocalizedEntity()
   {
-    if (_table==null)
-    {
-      _table=_tableController.getTable();
-    }
-    return _table;
+    return _localizedEntity;
   }
 
   @Override
@@ -180,6 +180,19 @@ public class TranslationTableController extends AbstractAreaController implement
       _panel.add(GuiFactory.buildScrollPane(_table), BorderLayout.CENTER);
     }
     return _panel;
+  }
+
+  /**
+   * Get the managed table.
+   * @return the managed table.
+   */
+  public JTable getTable()
+  {
+    if (_table==null)
+    {
+      _table=_tableController.getTable();
+    }
+    return _table;
   }
 
   /**

@@ -101,7 +101,6 @@ public class GuiPatternConfigurationPanelController extends AbstractPanelControl
   /**
    * Set the configuration to show.
    * @param cfg Configuration to show.
-   * @param manager .
    */
   public void setConfig(LotroGuiPatternConfiguration cfg)
   {

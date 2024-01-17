@@ -64,7 +64,7 @@ public class PluginWindowController extends DefaultWindowController
   @Override
   public void dispose()
   {
-    ModuleManager.getInstance().closeThreadPoolExecutor();
+    ModuleManager.getInstance().dispose();
     if (_controller!=null)
     {
       _controller.dispose();

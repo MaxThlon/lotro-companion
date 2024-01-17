@@ -14,10 +14,12 @@ import org.eclipse.jgit.diff.HistogramDiff;
 import org.eclipse.jgit.diff.RawText;
 import org.eclipse.jgit.diff.RawTextComparator;
 
-import delta.common.utils.i18n.MultilocalesTranslator;
+import delta.common.framework.i18n.ApacheMultilocalesTranslator;
+import delta.common.framework.translation.LocalizedEntity;
 import delta.games.lotro.config.labels.AvailableLabelsDefinition;
 import delta.games.lotro.config.labels.DefinitionOfAvailableLabels;
 import delta.games.lotro.gui.utils.l10n.Labels;
+import delta.games.lotro.lua.turbine.TurbineLanguage;
 
 /**
  * Manager for translations.
@@ -68,18 +70,22 @@ public class TranslationManager
   /**
    * @return ApacheMultilocalesTranslator.
    */
-  public ApacheMultilocalesTranslator getApacheMultilocalesTranslator() {
-    return new ApacheMultilocalesTranslator(
+  public ApacheMultilocalesTranslator getApacheMultilocalesTranslator()
+  {
+    ApacheMultilocalesTranslator apacheMultilocalesTranslator=new ApacheMultilocalesTranslator(
         Labels.class.getName(),
         getApplicationLocales()
     );
+    apacheMultilocalesTranslator.load(Labels.class);
+    return apacheMultilocalesTranslator;
   }
 
-  /**
-   * @return ApacheMultilocalesTranslator.
-   */
-  public MultilocalesTranslator getPluginMultilocalesTranslator() {
-    return null;
+  public void translate(LocalizedEntity localizedEntity,
+                        TurbineLanguage translateOrigin,
+                        List<TurbineLanguage> translateTarget,
+                        List<String> translateOrigins)
+  {
+    //
   }
 
   /**
